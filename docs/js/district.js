@@ -125,24 +125,28 @@ define(["jquery"], ($) => ({
         state.resetAddresss();
         state.resetPumpTypes();
         state.resetPumpOperatingStates();
-        state.resetYearFroms();
-        state.resetYearTos();
+        state.resetControlledFroms();
+        state.resetControlledTos();
         state.setAddressExplicitySet(false);
         state.setPumpTypeExplicitySet(false);
+        state.setPumpPhysicalStateExplicitySet(false);
+        state.setPumpDetailedPhysicalStateExplicitySet(false);
         state.setPumpOperatingStateExplicitySet(false);
-        state.setYearFromExplicitySet(false);
-        state.setYearToExplicitySet(false);
+        state.setControlledFromExplicitySet(false);
+        state.setControlledToExplicitySet(false);
         state.setLastSelectedAddress(0);
         state.setLastSelectedPumpType(0);
         state.setLastSelectedPumpOperatingState(0);
-        state.setLastSelectedYearFrom(0);
-        state.setLastSelectedYearTo(0);
+        state.setLastSelectedControlledFrom(0);
+        state.setLastSelectedControlledTo(0);
         data.loadData(state, selectedDistrict);
         $('#addressSelection option:eq(0)').prop('selected', true);
         $('#pumpTypeSelection option:eq(0)').prop('selected', true);
+        $('#pumpPhysicalStateSelection option:eq(0)').prop('selected', true);
+        $('#pumpDetailedPhysicalStateSelection option:eq(0)').prop('selected', true);
         $('#pumpOperatingStateSelection option:eq(0)').prop('selected', true);
-        $('#yearFromSelection option:eq(0)').prop('selected', true);
-        $('#yearToSelection option:eq(0)').prop('selected', true);
+        $('#controlledFromSelection option:eq(0)').prop('selected', true);
+        $('#controlledToSelection option:eq(0)').prop('selected', true);
       }
     }
   }

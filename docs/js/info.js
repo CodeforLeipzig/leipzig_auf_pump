@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type", "pump_operatingState", "year_from", "year_to", "location"], ($, leaflet, leafletAjax, district, address, pumpType, pumpOperatingState, yearFrom, yearTo, location) => {
+define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type", "pump_physicalState", "pump_detailedPhysicalState", "pump_operatingState", "controlled_from", "controlled_to", "location"], ($, leaflet, leafletAjax, district, address, pumpType, pumpPhysicalState, pumpDetailedPhysicalState, pumpOperatingState, controlledFrom, controlledTo, location) => {
   return {
     configureInfo: (state, data) => {
       // control that shows state info on hover
@@ -49,16 +49,6 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
           htmlInner += props["description"]
         }
         htmlInner += "<br /><br />"
-        htmlInner += "<b>Fütterung:</b> "
-        if (props) {
-          htmlInner += props["feeding"]
-        }
-        htmlInner += "<br /><br />"
-        htmlInner += "<b>Kontrollen:</b> "
-        if (props) {
-          htmlInner += props["controls"]
-        }
-        htmlInner += "<br /><br />"
         htmlInner += "<b>Adresse:</b> "
         htmlInner += address.addressSelectionBox(state);
         if (props) {
@@ -67,10 +57,31 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
           state.setLastSelectedAddress(0);
         }
         htmlInner += "<br /><br />"
+        htmlInner += "<b>Zustandsbeschreibung:</b> "
+        if (props) {
+          htmlInner += props["stateDescription"]
+        }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Physischer Zustand:</b> "
+        htmlInner += pumpPhysicalState.pumpPhysicalStateSelectionBox(state);
+        if (props) {
+          state.setLastSelectedPumpPhysicalState(state.getPumpPhysicalStates().indexOf(props["physicalState"]));
+        } else if (!state.getPumpPhysicalStateExplicitySet()) {
+          state.setLastSelectedPumpPhysicalState(0);
+        }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Detailierter physischer Zustand:</b> "
+        htmlInner += pumpDetailedPhysicalState.pumpDetailedPhysicalStateSelectionBox(state);
+        if (props) {
+          state.setLastSelectedPumpDetailedPhysicalState(state.getPumpDetailedPhysicalStates().indexOf(props["detailedPhysicalState"]));
+        } else if (!state.getPumpDetailedPhysicalStateExplicitySet()) {
+          state.setLastSelectedPumpDetailedPhysicalState(0);
+        }
+        htmlInner += "<br /><br />"
         htmlInner += "<b>Betriebszustand:</b> "
         htmlInner += pumpOperatingState.pumpOperatingStateSelectionBox(state);
         if (props) {
-          state.setLastSelectedPumpOperatingState(state.getPumpOperatingStates().indexOf(props["state"]));
+          state.setLastSelectedPumpOperatingState(state.getPumpOperatingStates().indexOf(props["operatingState"]));
         } else if (!state.getPumpOperatingStateExplicitySet()) {
           state.setLastSelectedPumpOperatingState(0);
         }
@@ -84,18 +95,28 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Zuletzt kontrolliert:</b> zwischen "
-        htmlInner += yearFrom.yearFromSelectionBox(state);
+        htmlInner += controlledFrom.controlledFromSelectionBox(state);
         if (props) {
-          state.setLastSelectedYearFrom(state.getYearFroms().indexOf(props["controls"]));
+          state.setLastSelectedControlledFrom(state.getControlledFroms().indexOf(props["lastControl"]));
         } else {
-          state.setLastSelectedYearFrom(state.getYearFromExplicitySet());
+          state.setLastSelectedControlledFrom(state.getControlledFromExplicitySet());
         }
         htmlInner += " und "
-        htmlInner += yearTo.yearToSelectionBox(state);
+        htmlInner += controlledTo.controlledToSelectionBox(state);
         if (props) {
-          state.setLastSelectedYearTo(state.getYearTos().indexOf(props["controls"]));
+          state.setLastSelectedControlledTo(state.getControlledTos().indexOf(props["lastControl"]));
         } else {
-          state.setLastSelectedYearTo(state.getYearToExplicitySet());
+          state.setLastSelectedControlledTo(state.getControlledToExplicitySet());
+        }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Fütterung:</b> "
+        if (props) {
+          htmlInner += props["feedingDescription"]
+        }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Kontrollen:</b> "
+        if (props) {
+          htmlInner += props["controlsDescription"]
         }
         if (props) {
           htmlInner += "<br /><br />"
@@ -105,9 +126,11 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         district.setDistrictInSelectionBox(state);
         address.setAddressInSelectionBox(state);
         pumpType.setPumpTypeInSelectionBox(state);
+        pumpPhysicalState.setPumpPhysicalStateInSelectionBox(state);
+        pumpDetailedPhysicalState.setPumpDetailedPhysicalStateInSelectionBox(state);
         pumpOperatingState.setPumpOperatingStateInSelectionBox(state);
-        yearFrom.setYearFromInSelectionBox(state);
-        yearTo.setYearToInSelectionBox(state);
+        controlledFrom.setControlledFromInSelectionBox(state);
+        controlledTo.setControlledToInSelectionBox(state);
         $("#districtSelection").off('change');
         $("#districtSelection").on('change', function(e) {
           district.handleDistrictChange(document, data, state);
@@ -125,23 +148,35 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
           pumpType.handlePumpTypeChange(document, data, state);
           state.setPumpTypeExplicitySet(state.getLastSelectedPumpType() != 0);
         });
+        $("#pumpPhysicalStateSelection").off('change');
+        $("#pumpPhysicalStateSelection").on('change', function(e) {
+          state.setPumpPhysicalStateExplicitySet(true);
+          pumpPhysicalState.handlePumpPhysicalStateChange(document, data, state);
+          state.setPumpPhysicalStateExplicitySet(state.getLastSelectedPumpPhysicalState() != 0);
+        });
+        $("#pumpDetailedPhysicalStateSelection").off('change');
+        $("#pumpDetailedPhysicalStateSelection").on('change', function(e) {
+          state.setPumpDetailedPhysicalStateExplicitySet(true);
+          pumpDetailedPhysicalState.handlePumpDetailedPhysicalStateChange(document, data, state);
+          state.setPumpDetailedPhysicalStateExplicitySet(state.getLastSelectedPumpDetailedPhysicalState() != 0);
+        });
         $("#pumpOperatingStateSelection").off('change');
         $("#pumpOperatingStateSelection").on('change', function(e) {
           state.setPumpOperatingStateExplicitySet(true);
           pumpOperatingState.handlePumpOperatingStateChange(document, data, state);
           state.setPumpOperatingStateExplicitySet(state.getLastSelectedPumpOperatingState() != 0);
         });
-        $("#yearFromSelection").off('change');
-        $("#yearFromSelection").on('change', function(e) {
-          state.setYearFromExplicitySet(true);
-          yearFrom.handleYearFromChange(document, data, state);
-          state.setYearFromExplicitySet(state.getLastSelectedYearFrom());
+        $("#controlledFromSelection").off('change');
+        $("#controlledFromSelection").on('change', function(e) {
+          state.setControlledFromExplicitySet(true);
+          controlledFrom.handleControlledFromChange(document, data, state);
+          state.setControlledFromExplicitySet(state.getLastSelectedControlledFrom());
         });
-        $("#yearToSelection").off('change');
-        $("#yearToSelection").on('change', function(e) {
-          state.setYearToExplicitySet(true);
-          yearTo.handleYearToChange(document, data, state);
-          state.setYearToExplicitySet(state.getLastSelectedYearTo());
+        $("#controlledToSelection").off('change');
+        $("#controlledToSelection").on('change', function(e) {
+          state.setControlledToExplicitySet(true);
+          controlledTo.handleControlledToChange(document, data, state);
+          state.setControlledToExplicitySet(state.getLastSelectedControlledTo());
         });
         $("#shareLocation").on('click', function(e) {
           if (navigator.geolocation) {

@@ -6,13 +6,17 @@ define({
     var lastSelectedAddress;
     var addressExplicitySet = false;
     var lastSelectedPumpType;
+    var lastSelectedPumpPhysicalState;
+    var lastSelectedPumpDetailedPhysicalState;
     var lastSelectedPumpOperatingState;
     var pumpTypeExplicitySet = false;
+    var pumpPhysicalStateExplicitySet = false;
+    var pumpDetailedPhysicalStateExplicitySet = false;
     var pumpOperatingStateExplicitySet = false;
-    var lastSelectedYearFrom;
-    var yearFromExplicitySet = false;
-    var lastSelectedYearTo;
-    var yearToExplicitySet = false;
+    var lastSelectedControlledFrom;
+    var controlledFromExplicitySet = false;
+    var lastSelectedControlledTo;
+    var controlledToExplicitySet = false;
     var oldLayer;
     var lastCoordinates;
     var lastPumpLayer;
@@ -21,9 +25,11 @@ define({
     var selectedPump;
     var addresss = [ " " ];
     var pumpTypes = [ " " ];
+    var pumpPhysicalStates = [ " " ];
+    var pumpDetailedPhysicalStates = [ " " ];
     var pumpOperatingStates = [ " " ];
-    var yearFroms = [ " " ];
-    var yearTos = [ " " ];
+    var controlledFroms = [ " " ];
+    var controlledTos = [ " " ];
     var lastHoveredCoords;
     var info;
     var matchCount = 0;
@@ -37,9 +43,11 @@ define({
       getLastSelectedDistrict: () => { return lastSelectedDistrict },
       getLastSelectedAddress: () => { return lastSelectedAddress },
       getLastSelectedPumpType: () => { return lastSelectedPumpType },
+      getLastSelectedPumpPhysicalState: () => { return lastSelectedPumpPhysicalState },
+      getLastSelectedPumpDetailedPhysicalState: () => { return lastSelectedPumpDetailedPhysicalState },
       getLastSelectedPumpOperatingState: () => { return lastSelectedPumpOperatingState },
-      getLastSelectedYearFrom: () => { return lastSelectedYearFrom },
-      getLastSelectedYearTo: () => { return lastSelectedYearTo },
+      getLastSelectedControlledFrom: () => { return lastSelectedControlledFrom },
+      getLastSelectedControlledTo: () => { return lastSelectedControlledTo },
       getOldLayer: () => { return oldLayer },
       getLastCoordinates: () => { return lastCoordinates },
       getLastPumpLayer: () => { return lastPumpLayer },
@@ -50,14 +58,18 @@ define({
       getInfo: () => { return info },
       getAddresss: ()  => { return addresss.sort() },
       getPumpTypes: ()  => { return pumpTypes.sort() },
+      getPumpPhysicalStates: ()  => { return pumpPhysicalStates.sort() },
+      getPumpDetailedPhysicalStates: ()  => { return pumpDetailedPhysicalStates.sort() },
       getPumpOperatingStates: ()  => { return pumpOperatingStates.sort() },
-      getYearFroms: ()  => { return yearFroms.sort() },
-      getYearTos: ()  => { return yearTos.sort() },
+      getControlledFroms: ()  => { return controlledFroms.sort() },
+      getControlledTos: ()  => { return controlledTos.sort() },
       getAddressExplicitySet: () => { return addressExplicitySet },
       getPumpTypeExplicitySet: () => { return pumpTypeExplicitySet },
+      getPumpPhysicalStateExplicitySet: () => { return pumpPhysicalStateExplicitySet },
+      getPumpDetailedPhysicalStateExplicitySet: () => { return pumpDetailedPhysicalStateExplicitySet },
       getPumpOperatingStateExplicitySet: () => { return pumpOperatingStateExplicitySet },
-      getYearFromExplicitySet: () => { return yearFromExplicitySet },
-      getYearToExplicitySet: () => { return yearToExplicitySet },
+      getControlledFromExplicitySet: () => { return controlledFromExplicitySet },
+      getControlledToExplicitySet: () => { return controlledToExplicitySet },
       getMatchCount: () => { return matchCount },
       hasPumpLocs: () => pumpLocs.size > 0,
       getNearestPumpLoc: (userLoc) => [...pumpLocs].map(([, value]) => value).reduce((currMin, pumpLoc) => {
@@ -71,9 +83,11 @@ define({
       setLastSelectedDistrict: (newLastSelectedDistrict) => { lastSelectedDistrict = newLastSelectedDistrict },
       setLastSelectedAddress: (newLastSelectedAddress) => { lastSelectedAddress = newLastSelectedAddress },
       setLastSelectedPumpType: (newLastSelectedPumpType) => { lastSelectedPumpType = newLastSelectedPumpType },
+      setLastSelectedPumpPhysicalState: (newLastSelectedPumpPhysicalState) => { lastSelectedPumpPhysicalState = newLastSelectedPumpPhysicalState },
+      setLastSelectedPumpDetailedPhysicalState: (newLastSelectedPumpDetailedPhysicalState) => { lastSelectedPumpDetailedPhysicalState = newLastSelectedPumpDetailedPhysicalState },
       setLastSelectedPumpOperatingState: (newLastSelectedPumpOperatingState) => { lastSelectedPumpOperatingState = newLastSelectedPumpOperatingState },
-      setLastSelectedYearFrom: (newLastSelectedYearFrom) => { lastSelectedYearFrom = newLastSelectedYearFrom },
-      setLastSelectedYearTo: (newLastSelectedYearTo) => { lastSelectedYearTo = newLastSelectedYearTo },
+      setLastSelectedControlledFrom: (newLastSelectedControlledFrom) => { lastSelectedControlledFrom = newLastSelectedControlledFrom },
+      setLastSelectedControlledTo: (newLastSelectedControlledTo) => { lastSelectedControlledTo = newLastSelectedControlledTo },
       setOldLayer: (newOldLayer) => { oldLayer = newOldLayer },
       setLastCoordinates: (newLastCoordinates) => { lastCoordinates = newLastCoordinates },
       setLastPumpLayer: (newLastPumpLayer) => { lastPumpLayer = newLastPumpLayer },
@@ -86,17 +100,23 @@ define({
       resetAddresss: () => { addresss = [ " " ] },
       addPumpType: (pumpType) => { if (pumpTypes.indexOf(pumpType) < 0) pumpTypes.push(pumpType) },
       resetPumpTypes: () => { pumpTypes = [ " " ] },
+      addPumpPhysicalState: (pumpPhysicalState) => { if (pumpPhysicalStates.indexOf(pumpPhysicalState) < 0) pumpPhysicalStates.push(pumpPhysicalState) },
+      resetPumpPhysicalStates: () => { pumpOperatingStates = [ " " ] },
+      addPumpDetailedPhysicalState: (pumpDetailedPhysicalState) => { if (pumpDetailedPhysicalStates.indexOf(pumpDetailedPhysicalState) < 0) pumpDetailedPhysicalStates.push(pumpDetailedPhysicalState) },
+      resetPumpDetailedPhysicalStates: () => { pumpDetailedPhysicalStates = [ " " ] },
       addPumpOperatingState: (pumpOperatingState) => { if (pumpOperatingStates.indexOf(pumpOperatingState) < 0) pumpOperatingStates.push(pumpOperatingState) },
       resetPumpOperatingStates: () => { pumpOperatingStates = [ " " ] },
-      addYearFrom: (yearFrom) => { if (yearFroms.indexOf(yearFrom) < 0) yearFroms.push(yearFrom) },
-      resetYearFroms: () => { yearFroms = [ " " ] },
-      addYearTo: (yearTo) => { if (yearTos.indexOf(yearTo) < 0) yearTos.push(yearTo) },
-      resetYearTos: () => { yearTos = [ " " ] },
+      addControlledFrom : (controlledFrom) => { if (controlledFroms.indexOf(controlledFrom) < 0) controlledFroms.push(controlledFrom) },
+      resetControlledFroms: () => { controlledFroms = [ " " ] },
+      addControlledTo: (controlledTo) => { if (controlledTos.indexOf(controlledTo) < 0) controlledTos.push(controlledTo) },
+      resetControlledTos: () => { controlledTos = [ " " ] },
       setAddressExplicitySet: (newAddressExplicitySet) => { addressExplicitySet = newAddressExplicitySet },
       setPumpTypeExplicitySet: (newPumpTypeExplicitySet) => { pumpTypeExplicitySet = newPumpTypeExplicitySet },
+      setPumpPhysicalStateExplicitySet: (newPumpPhysicalStateExplicitySet) => { pumpPhysicalStateExplicitySet = newPumpPhysicalStateExplicitySet },
+      setPumpDetailedPhysicalStateExplicitySet: (newPumpDetailedPhysicalStateExplicitySet) => { pumpDetailedPhysicalStateExplicitySet = newPumpDetailedPhysicalStateExplicitySet },
       setPumpOperatingStateExplicitySet: (newPumpOperatingStateExplicitySet) => { pumpOperatingStateExplicitySet = newPumpOperatingStateExplicitySet },
-      setYearFromExplicitySet: (newYearFromExplicitySet) => { yearFromExplicitySet = newYearFromExplicitySet },
-      setYearToExplicitySet: (newYearToExplicitySet) => { yearToExplicitySet = newYearToExplicitySet },
+      setControlledFromExplicitySet: (newControlledFromExplicitySet) => { controlledFromExplicitySet = newControlledFromExplicitySet },
+      setControlledToExplicitySet: (newControlledToExplicitySet) => { controlledToExplicitySet = newControlledToExplicitySet },
       setMatchCount: (newMatchCount) => { matchCount = newMatchCount},
       setPumpLoc: (pumpLoc) => { pumpLocs.set(pumpLoc.id, pumpLoc) },
       setCurrentPosition: position => {

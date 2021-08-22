@@ -13,7 +13,7 @@ sealed class Config(
 )
 
 data class PumpConfig(val id: String = "pump"): Config(path = "D:/alle.geojson", idProp = "district")
-data class DistrictConfig(val id: String = "district"): Config(path = "D:\\git\\opendata-leipzig-playground\\docs\\ortsteile.json", idProp = "Name")
+data class DistrictConfig(val id: String = "district"): Config(path = "D:\\git\\opendata-leipzig-playground\\docs\\ortsteile.json", idProp = id)
 
 fun main() {
     execute(PumpConfig())
@@ -23,7 +23,7 @@ fun execute(config: Config) {
     val objectMapper = ObjectMapper()
     val rootNode = objectMapper.readValue(File(config.path), JsonNode::class.java)
     val featuresNode = rootNode.get("features") as ArrayNode
-    val districtNames = getDistrictNames(config, featuresNode)
+    val districtNames = getDistrictNames(DistrictConfig(), featuresNode)
     for (districtName in districtNames) {
         try {
             storeGeojsonFile(config, districtName, featuresNode)
