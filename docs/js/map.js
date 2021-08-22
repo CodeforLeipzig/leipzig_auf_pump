@@ -30,9 +30,19 @@ define(["jquery", "leaflet", "leaflet.ajax"], ($, leaflet, leafletAjax) => ({
     const selectedControlledTo = state.getLastSelectedControlledTo();
     const controlledTo = feature.properties["lastControl"];
     state.addControlledTo(controlledTo);
+    var fillColor;
+    if (pumpPhysicalState == "nicht vorhanden") {
+      fillColor = "black";
+    } else if (pumpOperatingState == "außer Betrieb") {
+      fillColor = "darkgrey";
+    } else if (pumpOperatingState == "unbekannt") {
+      fillColor = "white";
+    } else {
+      fillColor = "lightgreen";
+    }
     var options = {
       radius: 8,
-      fillColor: selectedPump && selectedPump === feature.properties["numberAnke"] ? "red" : "lightgreen",
+      fillColor: selectedPump && selectedPump === feature.properties["numberAnke"] ? "red" : fillColor,
       color: "black",
       weight: 1,
       opacity: 1,
