@@ -17,7 +17,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "leaflet.markercluster", "progress"
 function registerLayerMouseOver(state, icon, info, geoJsonLayer) {
   geoJsonLayer.on('mouseover', function (e) {
     if (!state.getLastCoordinates()) {
-      state.setSelectedPump(e.layer.feature.properties["standortnr"]);
+      state.setSelectedPump(e.layer.feature.properties["numberAnke"]);
       icon.changeIcon(state, e);
       info.highlightFeature(state, e);
     }

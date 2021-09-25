@@ -34,6 +34,7 @@ define({
     var info;
     var matchCount = 0;
     var pumpLocs = new Map();
+    var pumpColors = new Map();
     var currentPosition;
     var shareLocation = false;
 
@@ -78,6 +79,7 @@ define({
         }, { dist: Number.MAX_VALUE }),
       getCurrentPosition: () => { return currentPosition; },
       isShareLocation: () => { return shareLocation; },
+      getPumpColor: (pumpId) => pumpColors.get(pumpId) || 'lightgreen',
 
       setPumpMap: (newPumpMap) => { pumpMap = newPumpMap },
       setLastSelectedDistrict: (newLastSelectedDistrict) => { lastSelectedDistrict = newLastSelectedDistrict },
@@ -129,7 +131,8 @@ define({
           currentPosition = undefined;
         }
       },
-      setShareLocation: (newShareLocation) => { shareLocation = newShareLocation; }
+      setShareLocation: (newShareLocation) => { shareLocation = newShareLocation; },
+      setPumpColor: (pumpColor) => { pumpColors.set(pumpColor.id, pumpColor.color) }
     }
   }
 });

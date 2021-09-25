@@ -21,9 +21,11 @@ define({
       var layerCoord = lastPumpLayer._layers[key]._latlng;
       var currentCoord = state.getLastHoveredCoords();
       if (currentCoord && layerCoord.lat === currentCoord[1] &&
-        layerCoord.lng === currentCoord[0]) {
-        lastPumpLayer._layers[key].setStyle({
-          fillColor: "lightgreen"
+          layerCoord.lng === currentCoord[0]) {
+        const layer = lastPumpLayer._layers[key];
+        const number = layer.feature.properties["numberAnke"];
+        layer.setStyle({
+          fillColor: state.getPumpColor(number)
         });
       }
     })

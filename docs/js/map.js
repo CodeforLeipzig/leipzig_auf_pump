@@ -8,7 +8,6 @@ define(["jquery", "leaflet", "leaflet.ajax"], ($, leaflet, leafletAjax) => ({
     return pumpMap;
   },
   createCircleMarker: (state) => (feature, latlng) => {
-    const selectedPump = state.getSelectedPump();
     const selectedAddress = state.getLastSelectedAddress();
     const address = feature.properties["address"];
     state.addAddress(address);
@@ -40,9 +39,11 @@ define(["jquery", "leaflet", "leaflet.ajax"], ($, leaflet, leafletAjax) => ({
     } else {
       fillColor = "lightgreen";
     }
+    const number = feature.properties["numberAnke"];
+    state.setPumpColor({ id: number, color: fillColor})
     var options = {
       radius: 8,
-      fillColor: selectedPump && selectedPump === feature.properties["numberAnke"] ? "red" : fillColor,
+      fillColor: fillColor,
       color: "black",
       weight: 1,
       opacity: 1,

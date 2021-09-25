@@ -24,29 +24,29 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         htmlInner += "<b>Ortsteil:</b> "
         htmlInner += district.districtSelectionBox(state);
         htmlInner += "<br /><br />"
-        htmlInner += "<b>Nummer [Anke]:</b> "
+        htmlInner += "<b>Nummer:</b> "
         if (props) {
-          htmlInner += props["numberAnke"]
+          htmlInner += props["numberAnke"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>offizielle Nummer:</b> "
         if (props) {
-          htmlInner += props["numberOfficial"]
+          htmlInner += props["numberOfficial"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Bezeichnung:</b> "
         if (props) {
-          htmlInner += props["name"]
+          htmlInner += props["name"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Datierung:</b> "
         if (props) {
-          htmlInner += props["date"]
+          htmlInner += props["date"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Beschreibung:</b> "
         if (props) {
-          htmlInner += props["description"]
+          htmlInner += props["description"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Adresse:</b> "
@@ -59,7 +59,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         htmlInner += "<br /><br />"
         htmlInner += "<b>Zustandsbeschreibung:</b> "
         if (props) {
-          htmlInner += props["stateDescription"]
+          htmlInner += props["stateDescription"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Physischer Zustand:</b> "
@@ -111,12 +111,12 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         htmlInner += "<br /><br />"
         htmlInner += "<b>Fütterung:</b> "
         if (props) {
-          htmlInner += props["feedingDescription"]
+          htmlInner += props["feedingDescription"] || ""
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Kontrollen:</b> "
         if (props) {
-          htmlInner += props["controlsDescription"]
+          htmlInner += props["controlsDescription"] || ""
         }
         if (props) {
           htmlInner += "<br /><br />"

@@ -4,12 +4,16 @@ define(["jquery", "leaflet", "leaflet.ajax", "district"], ($, leaflet, leafletAj
       if (!state.hasPumpLocs()) {
         return $.getJSON(`geojsons/pumps/alle.geojson`, geojsonData => {
           geojsonData.features.forEach(feature => {
-          const id = feature.properties["standortnr"];
+            const id = feature.properties["numberAnke"];
             state.setPumpLoc({
               id,
               district: feature.properties["ortsteil"],
               x: feature.properties["xcoord"],
-              y: feature.properties["ycoord"]
+              y: feature.properties["ycoord"],
+            });
+            state.setPumpColor({
+              id,
+              color: 'lightgreen'
             });
           });
         });
