@@ -10,13 +10,14 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
       };
       info.update = function (id, props) {
         var htmlInner = '<div style="width: 350px;">';
-        htmlInner += '<input id="shareLocation" type="button" value="Teile Standort" />'
+        htmlInner += '<input id="shareLocation" type="button" value="Zoome auf Deinen aktuellen Standort" />'
         htmlInner += "<br /><br />"
         if (!props) {
           htmlInner += '<h4>Hovere &uuml;ber eine Pumpe</h4>'
         } else {
           htmlInner += '<h4>Infos</h4>'
         }
+        htmlInner += '<b>Hinweis:</b> Den Marker einer Pumpe einmal anklicken, um Auswahl einzurasten und so dann z.B. die Galerieansicht dieses Marker &ouml;ffnen zu k&ouml;nnen, nochmaliges Anklicken des Markers l&ouml;st die Auswahl wieder<br />';
         htmlInner += "<br />"
         htmlInner += "<b>Suchtreffer:</b> "
         htmlInner += state.getMatchCount();
@@ -199,6 +200,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         layer.bringToFront();
       }
       state.getInfo().update(e.layer.feature.id, e.layer.feature.properties);
+      state.getPictures().update(e.layer.feature.id, e.layer.feature.properties);
     },
     resetHighlight: (state, e) => {
       state.getInfo().update();

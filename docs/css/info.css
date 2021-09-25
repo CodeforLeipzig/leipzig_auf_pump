@@ -11,3 +11,38 @@
   margin: 0 0 5px;
   color: #777;
 }
+
+.legend {
+  text-align: left;
+  line-height: 18px;
+  color: #555;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.fancybox-nav {
+  width: 60px;
+}
+
+.fancybox-nav span {
+  visibility: visible;
+  opacity: 0.5;
+}
+
+.fancybox-nav:hover span {
+  opacity: 1;
+}
+
+.fancybox-next {
+  right: -60px;
+}
+
+.fancybox-prev {
+  left: -60px;
+}

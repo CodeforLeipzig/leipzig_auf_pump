@@ -11,6 +11,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "leaflet.markercluster", "progress"
     registerLayerMouseOut(state, icon, info, geoJsonLayer);
     geoJsonLayer.on('click', registerLayerMouseClick(state, icon, info));
     state.getInfo().update();
+    state.getPictures().update();
   }
 });
 

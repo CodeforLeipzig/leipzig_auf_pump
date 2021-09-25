@@ -6,10 +6,11 @@ requirejs.config({
     "leaflet.ajax": "https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min",
     "leaflet.markercluster": "https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster",
     "jquery": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min",
+    "fancybox": "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd",
   }
 });
 
-require(["jquery", "map", "data", "shared_state", "info", "district", "leaflet", "leaflet.ajax"], function ($, map, data, state, info, district, leaflet, leafletAjax) {
+require(["jquery", "map", "data", "shared_state", "info", "legend", "pictures", "district", "leaflet", "leaflet.ajax"], function ($, map, data, state, info, legend, pictures, district, leaflet, leafletAjax) {
   $.ajaxSetup({
     scriptCharset: "utf-8",
     contentType: "application/json; charset=utf-8"
@@ -19,6 +20,10 @@ require(["jquery", "map", "data", "shared_state", "info", "district", "leaflet",
   const globalState = state.state();
   globalState.setPumpMap(pumpMap);
   const infoBox = info.configureInfo(globalState, data);
+  const legendBox = legend.configureLegend();
+  const picturesBox = pictures.configureLegend(globalState, data);
   data.loadData(globalState, district.allDistricts[0]);
   infoBox.addTo(pumpMap);
+  legendBox.addTo(pumpMap);
+  picturesBox.addTo(pumpMap);
 });

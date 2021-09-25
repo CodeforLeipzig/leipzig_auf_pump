@@ -32,6 +32,7 @@ define({
     var controlledTos = [ " " ];
     var lastHoveredCoords;
     var info;
+    var pictures;
     var matchCount = 0;
     var pumpLocs = new Map();
     var pumpColors = new Map();
@@ -57,6 +58,7 @@ define({
       getSelectedPump: () => { return selectedPump },
       getLastHoveredCoords: () => { return lastHoveredCoords },
       getInfo: () => { return info },
+      getPictures: () => { return pictures },
       getAddresss: ()  => { return addresss.sort() },
       getPumpTypes: ()  => { return pumpTypes.sort() },
       getPumpPhysicalStates: ()  => { return pumpPhysicalStates.sort() },
@@ -98,6 +100,7 @@ define({
       setSelectedPump: (newSelectedPump) => { selectedPump = newSelectedPump },
       setLastHoveredCoords: (newLastHoveredCoords) => { lastHoveredCoords = newLastHoveredCoords },
       setInfo: (newInfo) => { info = newInfo },
+      setPictures: (newPictures) => { pictures = newPictures },
       addAddress: (address) => { if (addresss.indexOf(address) < 0) addresss.push(address) },
       resetAddresss: () => { addresss = [ " " ] },
       addPumpType: (pumpType) => { if (pumpTypes.indexOf(pumpType) < 0) pumpTypes.push(pumpType) },
