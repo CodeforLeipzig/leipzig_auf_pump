@@ -95,7 +95,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
           state.setLastSelectedPumpType(0);
         }
         htmlInner += "<br /><br />"
-        htmlInner += "<b>Zuletzt kontrolliert:</b> zwischen "
+        htmlInner += "<b>Zuletzt kontrolliert:</b><br />zwischen "
         htmlInner += controlledFrom.controlledFromSelectionBox(state);
         if (props) {
           state.setLastSelectedControlledFrom(state.getControlledFroms().indexOf(props["lastControl"]));

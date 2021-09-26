@@ -42,7 +42,6 @@ function registerLayerMouseClick(state, icon, info, pictures) {
     if (state.getLastCoordinates() != coordinates) {
       if (state.getLastCoordinates()) {
         icon.resetIcon(state);
-        pictures.resetPictures();
         icon.changeIcon(state, e);
       }
       info.highlightFeature(state, e);
