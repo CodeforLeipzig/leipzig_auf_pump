@@ -28,7 +28,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "fancybox"], ($, leaflet, leafletAj
         return this._div;
       };
       picturePane.update = function (id, data) {
-        var htmlInner = '<div style="width: 370px; height: 300px;"><h4>Fotos (Klick auf Foto für Gallerie aller Fotos)</h4>';
+        var htmlInner = '<div style="width: 370px; height: 300px;"><h4>Fotos (Klick auf Foto für Galerie aller Fotos)</h4>';
         htmlInner += '<div style="width: 350px; height: 250px;" id="pumpsPhotoContainer"/>'
         htmlInner += '</div>'
         this._div.innerHTML = htmlInner;
