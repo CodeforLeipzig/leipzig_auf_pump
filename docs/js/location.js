@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax", "district"], ($, leaflet, leafletAjax, district) => {
+define(["jquery", "leaflet", "district"], ($, leaflet, district) => {
   return {
     fillPumpLocations: (state) => {
       if (!state.hasPumpLocs()) {

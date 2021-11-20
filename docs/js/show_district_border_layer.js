@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax", "map", "location"], ($, leaflet, leafletAjax, map, location) => {
+define(["jquery", "leaflet", "map", "location"], ($, leaflet, map, location) => {
   return (state, geojsonData) => {
     const style = {
       weight: 2,

@@ -1,0 +1,1090 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "node/496111425",
+            "properties": {
+                "timestamp": "2010-10-03T09:49:12Z",
+                "version": 2,
+                "changeset": 5942390,
+                "user": "stw1701",
+                "uid": 102899,
+                "historic": "yes",
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/496111425"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.365493,
+                    51.3592808
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/904217808",
+            "properties": {
+                "timestamp": "2010-09-30T15:42:38Z",
+                "version": 2,
+                "changeset": 5921039,
+                "user": "stw1701",
+                "uid": 102899,
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/904217808"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3546712,
+                    51.3579294
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/904217838",
+            "properties": {
+                "timestamp": "2010-09-30T15:42:46Z",
+                "version": 2,
+                "changeset": 5921039,
+                "user": "stw1701",
+                "uid": 102899,
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/904217838"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3552808,
+                    51.3582749
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/931883433",
+            "properties": {
+                "timestamp": "2010-09-30T15:42:21Z",
+                "version": 1,
+                "changeset": 5921039,
+                "user": "stw1701",
+                "uid": 102899,
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/931883433"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3551428,
+                    51.3569853
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/931883549",
+            "properties": {
+                "timestamp": "2010-09-30T15:42:23Z",
+                "version": 1,
+                "changeset": 5921039,
+                "user": "stw1701",
+                "uid": 102899,
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/931883549"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3565204,
+                    51.3573528
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/1113204402",
+            "properties": {
+                "timestamp": "2017-12-25T13:56:46Z",
+                "version": 2,
+                "changeset": 54907821,
+                "user": "ThePacki",
+                "uid": 666,
+                "drinking_water": "no",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/1113204402"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3764836,
+                    51.3397182
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2307928103",
+            "properties": {
+                "timestamp": "2021-08-23T11:22:54Z",
+                "version": 5,
+                "changeset": 110110564,
+                "user": "Maskulinum",
+                "uid": 618377,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2307928103"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3762232,
+                    51.3384586
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2307944653",
+            "properties": {
+                "timestamp": "2021-08-23T11:22:54Z",
+                "version": 3,
+                "changeset": 110110564,
+                "user": "Maskulinum",
+                "uid": 618377,
+                "drinking_water": "no",
+                "drinking_water:legal": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2307944653"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4032073,
+                    51.3458284
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2308129811",
+            "properties": {
+                "timestamp": "2021-08-23T11:22:54Z",
+                "version": 2,
+                "changeset": 110110564,
+                "user": "Maskulinum",
+                "uid": 618377,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2308129811"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3573397,
+                    51.3455428
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2326009256",
+            "properties": {
+                "timestamp": "2021-08-23T11:22:54Z",
+                "version": 2,
+                "changeset": 110110564,
+                "user": "Maskulinum",
+                "uid": 618377,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2326009256"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3872959,
+                    51.3438374
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2357129978",
+            "properties": {
+                "timestamp": "2021-08-23T11:22:54Z",
+                "version": 2,
+                "changeset": 110110564,
+                "user": "Maskulinum",
+                "uid": 618377,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2357129978"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3723331,
+                    51.3494249
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2515131178",
+            "properties": {
+                "timestamp": "2014-07-18T09:29:27Z",
+                "version": 4,
+                "changeset": 24216731,
+                "user": "lutz",
+                "uid": 5294,
+                "historic": "yes",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/2515131178"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.2046972,
+                    51.2641672
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2575833094",
+            "properties": {
+                "timestamp": "2021-10-19T21:12:40Z",
+                "version": 3,
+                "changeset": 112717644,
+                "user": "mama we",
+                "uid": 3378223,
+                "drinking_water": "no",
+                "drinking_water:legal": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "heritage",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "id": "node/2575833094"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3775453,
+                    51.3385082
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633070255",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 2,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://commons.wikimedia.org/wiki/File:Luxemburgstra%C3%9Fe_Leipzig_August_2013_018.jpg",
+                "pump": "manual",
+                "ref:lfd": "09293310",
+                "id": "node/2633070255"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3977777,
+                    51.3472995
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989757",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:09Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Handschwengelpumpe_B%C3%BCrgerstra%C3%9Fe-Bornaische_Stra%C3%9Fe_Leipzig_1.JPG",
+                "pump": "manual",
+                "ref:lfd": "09296178",
+                "id": "node/2633989757"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3926326,
+                    51.2879791
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989778",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:09Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Handschwengelpumpe_Bornaische_Stra%C3%9Fe_3c_Leipzig_1.JPG",
+                "pump": "manual",
+                "ref:lfd": "09296343",
+                "id": "node/2633989778"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.374656,
+                    51.3094555
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989803",
+            "properties": {
+                "timestamp": "2021-06-26T16:25:23Z",
+                "version": 2,
+                "changeset": 107009590,
+                "user": "Bewegen157",
+                "uid": 11885380,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Handschwengelpumpe_Bernhard-G%C3%B6ring-Stra%C3%9Fe_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09295456",
+                "id": "node/2633989803"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3767752,
+                    51.3167214
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989819",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:09Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09294873",
+                "id": "node/2633989819"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3288366,
+                    51.3193264
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989836",
+            "properties": {
+                "timestamp": "2021-11-13T13:02:58Z",
+                "version": 3,
+                "changeset": 113729784,
+                "user": "Claudius Henrichs",
+                "uid": 18069,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09295648",
+                "id": "node/2633989836"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3677833,
+                    51.3224059
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989858",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:09Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09294883",
+                "id": "node/2633989858"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3205824,
+                    51.3265613
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989881",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:09Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Handschwengelpumpe_Davidstra%C3%9Fe_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09292455",
+                "id": "node/2633989881"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3568249,
+                    51.334834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989900",
+            "properties": {
+                "timestamp": "2021-09-21T13:51:56Z",
+                "version": 2,
+                "changeset": 111498141,
+                "user": "ich-ich-ich-ich-ich-ich",
+                "uid": 13128619,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "pump": "manual",
+                "ref:lfd": "09299206",
+                "removed:man_made": "water_well",
+                "id": "node/2633989900"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4110985,
+                    51.3353002
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989916",
+            "properties": {
+                "timestamp": "2021-09-28T11:33:50Z",
+                "version": 3,
+                "changeset": 111814441,
+                "user": "G222665544889",
+                "uid": 13149723,
+                "drinking_water": "no",
+                "drinking_water:legal": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Handschwengelpumpe_Burgstra%C3%9Fe_Leipzig.jpg",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09292753",
+                "id": "node/2633989916"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3732798,
+                    51.3382259
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989931",
+            "properties": {
+                "timestamp": "2021-04-10T13:21:26Z",
+                "version": 4,
+                "changeset": 102698332,
+                "user": "village",
+                "uid": 292618,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:status": "broken",
+                "ref:lfd": "09294859",
+                "id": "node/2633989931"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4091055,
+                    51.3383994
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989943",
+            "properties": {
+                "timestamp": "2021-06-06T20:20:10Z",
+                "version": 3,
+                "changeset": 105931946,
+                "user": "25Quokkas",
+                "uid": 13504656,
+                "drinking_water": "no",
+                "drinking_water:legal": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Handschwengelpumpe_Crusiusstra%C3%9Fe_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09294869",
+                "id": "node/2633989943"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3983536,
+                    51.3389323
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989958",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09294846",
+                "id": "node/2633989958"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4296318,
+                    51.3411366
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989969",
+            "properties": {
+                "timestamp": "2017-09-12T18:04:04Z",
+                "version": 3,
+                "changeset": 51981637,
+                "user": "YieldMapper",
+                "uid": 3847112,
+                "drinking_water:legal": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Handschwengelpumpe_Br%C3%BChl_Leipzig.jpg",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09291088",
+                "id": "node/2633989969"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3747419,
+                    51.3430077
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989983",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/5/52/Handschwengelpumpe_Chopinstra%C3%9Fe_Leipzig_August_2013_02.jpg",
+                "pump": "manual",
+                "ref:lfd": "09290039",
+                "id": "node/2633989983"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3904049,
+                    51.3433315
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633989994",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09294652",
+                "id": "node/2633989994"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.414117,
+                    51.3456068
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633990003",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/4/48/Torso_einer_Handschwengelpumpe_Dimpfelstra%C3%9Fe_25_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09260231",
+                "id": "node/2633990003"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4087692,
+                    51.3537773
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633990012",
+            "properties": {
+                "timestamp": "2014-01-23T16:54:10Z",
+                "version": 1,
+                "changeset": 20163074,
+                "user": "DaB",
+                "uid": 488688,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Handschwengelpumpe_Dimpfelstra%C3%9Fe_52_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09260243",
+                "id": "node/2633990012"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4093351,
+                    51.3564627
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633990026",
+            "properties": {
+                "timestamp": "2015-12-11T23:48:05Z",
+                "version": 2,
+                "changeset": 35900203,
+                "user": "reneman",
+                "uid": 413017,
+                "disused": "yes",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "historic": "yes",
+                "image": "https://commons.wikimedia.org/wiki/File:Ehemalige_Handschwengelpumpe_Clara-Wieck-Stra%C3%9Fe_Leipzig.jpg",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09294857",
+                "id": "node/2633990026"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4136647,
+                    51.3574553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/2633990035",
+            "properties": {
+                "timestamp": "2021-09-26T07:36:07Z",
+                "version": 3,
+                "changeset": 111710013,
+                "user": "Ingbife",
+                "uid": 13667317,
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Ehem._Handschwengelpumpe_Bl%C3%BCcherplatz_Leipzig.jpg",
+                "pump": "manual",
+                "ref:lfd": "09294852",
+                "id": "node/2633990035"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3489694,
+                    51.3681855
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/3328133281",
+            "properties": {
+                "timestamp": "2015-02-03T08:56:46Z",
+                "version": 1,
+                "changeset": 28584369,
+                "user": "elsaxo",
+                "uid": 53936,
+                "man_made": "water_well",
+                "pump": "manual",
+                "id": "node/3328133281"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3194869,
+                    51.3256753
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/3998934231",
+            "properties": {
+                "timestamp": "2020-12-07T18:53:48Z",
+                "version": 2,
+                "changeset": 95440790,
+                "user": "mangerlahn",
+                "uid": 10602436,
+                "access": "yes",
+                "description": "gußeiserne Handschwengelpumpe, Typ Vogelkäfig; nach 1910",
+                "drinking_water": "no",
+                "historic": "yes",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:status": "ok",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/3998934231"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3734977,
+                    51.3327678
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/4014494089",
+            "properties": {
+                "timestamp": "2016-02-19T12:35:56Z",
+                "version": 2,
+                "changeset": 37307662,
+                "user": "leolips",
+                "uid": 280354,
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/4014494089"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4124275,
+                    51.3594939
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/4247514259",
+            "properties": {
+                "timestamp": "2021-03-26T04:43:49Z",
+                "version": 2,
+                "changeset": 101757650,
+                "user": "Rosalo",
+                "uid": 548109,
+                "man_made": "pumping_station",
+                "pump": "disused",
+                "id": "node/4247514259"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3208414,
+                    51.4373602
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/5221174742",
+            "properties": {
+                "timestamp": "2021-05-09T12:08:11Z",
+                "version": 2,
+                "changeset": 104393760,
+                "user": "YieldMapper",
+                "uid": 3847112,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "water_well": "pump",
+                "id": "node/5221174742"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4368681,
+                    51.347841
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/5221174743",
+            "properties": {
+                "timestamp": "2021-05-09T12:00:58Z",
+                "version": 2,
+                "changeset": 104393760,
+                "user": "YieldMapper",
+                "uid": 3847112,
+                "drinking_water": "no",
+                "heritage": "4",
+                "heritage:operator": "lfd",
+                "man_made": "water_well",
+                "pump": "manual",
+                "ref:lfd": "09262177",
+                "water_well": "pump",
+                "id": "node/5221174743"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4367987,
+                    51.3462758
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/7203120585",
+            "properties": {
+                "timestamp": "2020-02-11T10:17:59Z",
+                "version": 1,
+                "changeset": 80843402,
+                "user": "leolips",
+                "uid": 280354,
+                "drinking_water": "no",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/7203120585"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3709926,
+                    51.3451295
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/7511062285",
+            "properties": {
+                "timestamp": "2020-05-12T12:55:43Z",
+                "version": 2,
+                "changeset": 85088076,
+                "user": "leolips",
+                "uid": 280354,
+                "drinking_water": "no",
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/7511062285"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3871792,
+                    51.3572198
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/7772860885",
+            "properties": {
+                "timestamp": "2021-01-22T17:40:23Z",
+                "version": 3,
+                "changeset": 97989604,
+                "user": "leolips",
+                "uid": 280354,
+                "man_made": "water_well",
+                "pump": "manual",
+                "pump:style": "historic",
+                "water_well": "pump",
+                "id": "node/7772860885"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3499801,
+                    51.3665527
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/8335750809",
+            "properties": {
+                "timestamp": "2021-01-18T20:43:41Z",
+                "version": 1,
+                "changeset": 97720826,
+                "user": "Radler59",
+                "uid": 122732,
+                "description": "Handschwengelpumpe auf dem Roßmarkt in Leipzig-Liebertwolkwitz",
+                "heritage": "yes",
+                "heritage:operator": "lfd",
+                "historic": "yes",
+                "image": "https://commons.wikimedia.org/wiki/File:Liebertwolkwitz_Rossmarkt_Handschwengelpumpe-01.jpg",
+                "lfd:criteria": "Baudenkmal",
+                "man_made": "water_well",
+                "name": "Handschwengelpumpe",
+                "pump": "manual",
+                "ref:lfd": "09299340",
+                "id": "node/8335750809"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4645074,
+                    51.284719
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "node/8827067918",
+            "properties": {
+                "timestamp": "2021-06-12T08:57:43Z",
+                "version": 1,
+                "changeset": 106245183,
+                "user": "phriedrich",
+                "uid": 429511,
+                "historic": "yes",
+                "man_made": "water_well",
+                "pump": "no",
+                "start_date": "1880",
+                "id": "node/8827067918"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.3983896,
+                    51.3426885
+                ]
+            }
+        }
+    ]
+}

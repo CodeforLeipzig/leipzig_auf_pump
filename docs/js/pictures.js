@@ -1,19 +1,43 @@
-define(["jquery", "leaflet", "leaflet.ajax", "fancybox"], ($, leaflet, leafletAjax, fancybox) => {
+define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
   const resetPictures = () => {
     for (var i=0; i<5; i++) {
       $("#pumpsPhotoContainer a:last-child").remove();
     }
+  };
+  const base = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://codeforleipzig.github.io/leipzig_auf_pump/";
+  const readFile = (url, ext) => {
+    return $.get(base+url+"." + ext).then((result, status, xhr) => {
+      return { url, result: { status: xhr && xhr.status, responseText: (ext == "html") ? xhr.responseText : null } }
+    }).catch((result) => {
+      return { url, result: { status: result && result.status} }
+    });
   };
   const updatePictures = (state, properties) => {
     resetPictures();
     const id = (properties && properties["numberAnke"]) || state.getSelectedPump()
     if (id) {
       if ($("#pumpsPhotoContainer > img").length == 0) {
-        $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-src='./images/" + id + "/01.jpg'><img alt='Noch keine Fotos verfügbar' src='./images/" + id + "/01.jpg' style='height:275px' /></a>");
-        $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-src='./images/" + id + "/02.jpg'><img src='./images/" + id + "/02.jpg' style='width:0px' /></a>");
-        $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-src='./images/" + id + "/03.jpg'><img src='./images/" + id + "/03.jpg' style='width:0px' /></a>");
-        $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-src='./images/" + id + "/04.jpg'><img src='./images/" + id + "/04.jpg' style='width:0px' /></a>");
-        $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-src='./images/" + id + "/05.jpg'><img src='./images/" + id + "/05.jpg' style='width:0px' /></a>");
+        const images = Array();
+        for (var i=1; i<=5; i++) {
+          images.push(readFile('images/' + id + '/0' + i, 'jpg'))
+        }
+        Promise.all(images).then(imageResults => {
+          const resolvedImages = imageResults.map(img => img.result && img.result.status === 200 ? img.url : null).filter(res => res != null);
+          const creditLines = resolvedImages.map(resolvedImage => readFile(resolvedImage, "html"));
+          Promise.all(creditLines).then(creditLineResults => {
+            if (resolvedImages.length > 0) {
+              for (var i=0; i<resolvedImages.length; i++) {
+                const path = resolvedImages[i];
+                const creditLine = creditLineResults.find(res => res.url === path);
+                const caption = creditLine && creditLine.result.status === 200 && creditLine.result.responseText || "";
+                const text = (i == 0) ? caption : "";
+                $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-caption='" + caption + "' data-src='./" + resolvedImages[i] + ".jpg'><img alt='Noch keine Fotos verfügbar' src='./" + resolvedImages[i] + ".jpg' style='height:" + ((i==0) ? 250 : 0) + "px' />" + text + "</a>");
+              }
+            } else {
+              $("#pumpsPhotoContainer").append("<a>Keine Fotos erfasst</a>");
+            }
+          });
+        });
       }
     }
   }

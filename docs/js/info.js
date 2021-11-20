@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type", "pump_physicalState", "pump_detailedPhysicalState", "pump_operatingState", "controlled_from", "controlled_to", "location"], ($, leaflet, leafletAjax, district, address, pumpType, pumpPhysicalState, pumpDetailedPhysicalState, pumpOperatingState, controlledFrom, controlledTo, location) => {
+define(["jquery", "leaflet", "district", "address", "pump_type", "pump_physicalState", "pump_detailedPhysicalState", "pump_operatingState", "controlled_from", "controlled_to", "location"], ($, leaflet, district, address, pumpType, pumpPhysicalState, pumpDetailedPhysicalState, pumpOperatingState, controlledFrom, controlledTo, location) => {
   return {
     configureInfo: (state, data) => {
       // control that shows state info on hover
@@ -26,29 +26,19 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         htmlInner += district.districtSelectionBox(state);
         htmlInner += "<br /><br />"
         htmlInner += "<b>Nummer:</b> "
-        if (props) {
-          htmlInner += props["numberAnke"] || ""
-        }
+        htmlInner += (props && props["numberAnke"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>offizielle Nummer:</b> "
-        if (props) {
-          htmlInner += props["numberOfficial"] || ""
-        }
+        htmlInner += (props && props["numberOfficial"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Bezeichnung:</b> "
-        if (props) {
-          htmlInner += props["name"] || ""
-        }
+        htmlInner += (props && props["name"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Datierung:</b> "
-        if (props) {
-          htmlInner += props["date"] || ""
-        }
+        htmlInner += (props && props["date"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Beschreibung:</b> "
-        if (props) {
-          htmlInner += props["description"] || ""
-        }
+        htmlInner += (props && props["description"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Adresse:</b> "
         htmlInner += address.addressSelectionBox(state);
@@ -59,9 +49,7 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Zustandsbeschreibung:</b> "
-        if (props) {
-          htmlInner += props["stateDescription"] || ""
-        }
+        htmlInner += (props && props["stateDescription"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Physischer Zustand:</b> "
         htmlInner += pumpPhysicalState.pumpPhysicalStateSelectionBox(state);
@@ -111,13 +99,14 @@ define(["jquery", "leaflet", "leaflet.ajax", "district", "address", "pump_type",
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Fütterung:</b> "
-        if (props) {
-          htmlInner += props["feedingDescription"] || ""
-        }
+        htmlInner += (props && props["feedingDescription"]) || ""
         htmlInner += "<br /><br />"
         htmlInner += "<b>Kontrollen:</b> "
-        if (props) {
-          htmlInner += props["controlsDescription"] || ""
+        htmlInner += (props && props["controlsDescription"]) || ""
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Eintrag in OpenStreetMap:</b> "
+        if (props && props["osmId"]) {
+          htmlInner += "<a target='_' href='https://www.openstreetmap.org/" + props["osmId"] + "'>vorhanden</a>"
         }
         if (props) {
           htmlInner += "<br /><br />"

@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures"], ($, leaflet, leafletAjax, leafletClusterMap, updateProgressBar, map, icon, info, pictures) => {
+define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures"], ($, leaflet, leafletClusterMap, updateProgressBar, map, icon, info, pictures) => {
   return (state, data) => {
     state.setMatchCount(0);
     var clusterLayer = leaflet.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar, maxClusterRadius: () => 25 });

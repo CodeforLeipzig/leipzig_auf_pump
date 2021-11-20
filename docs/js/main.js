@@ -7,10 +7,14 @@ requirejs.config({
     "leaflet.markercluster": "https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster",
     "jquery": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min",
     "fancybox": "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd",
+  },
+  shim: {
+    "leaflet.ajax": [ "leaflet" ],
+    "leaflet.markercluster": [ "leaflet" ]
   }
 });
 
-require(["jquery", "map", "data", "shared_state", "info", "legend", "pictures", "district", "leaflet", "leaflet.ajax"], function ($, map, data, state, info, legend, pictures, district, leaflet, leafletAjax) {
+require(["jquery", "map", "data", "shared_state", "info", "legend", "pictures", "district", "leaflet"], function ($, map, data, state, info, legend, pictures, district, leaflet) {
   $.ajaxSetup({
     scriptCharset: "utf-8",
     contentType: "application/json; charset=utf-8"

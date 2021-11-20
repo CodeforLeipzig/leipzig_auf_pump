@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax"], ($, leaflet, leafletAjax) => {
+define(["jquery", "leaflet"], ($, leaflet) => {
   return {
     configureLegend: () => {
       var legend = L.control({

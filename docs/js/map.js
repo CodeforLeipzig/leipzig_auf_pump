@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.ajax"], ($, leaflet, leafletAjax) => ({
+define(["jquery", "leaflet"], ($, leaflet) => ({
 	create: () => {
     var pumpMap = leaflet.map('PumpMap');
     var baseMap = leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
