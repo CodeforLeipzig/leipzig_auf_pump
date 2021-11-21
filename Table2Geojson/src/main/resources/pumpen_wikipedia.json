@@ -356,7 +356,7 @@
             "Adresse": "Coppiplatz",
             "Adresse-sort": null,
             "NS": "51.36731",
-            "EW": "12.366792 Koordinaten prüfen",
+            "EW": "12.366792",
             "Datierung": "",
             "Datierung-sort": null,
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte(Ganzplatte)zwischen Landsberger Straße und Heinrich-Budde-Straße",
@@ -826,7 +826,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Nr.2, Ecke Landsberger Straße",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09299204",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -879,7 +879,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in Ecklage Geraer Straße",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09260164",
             "Name": "Handschwengelpumpe",
@@ -893,7 +893,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09295647",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -946,7 +946,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in Ecklage Springerstraße(Typ Großer Löwe); nur noch Pumpenfußteil vorhanden",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09263864",
             "Name": "Handschwengelpumpe",
@@ -960,7 +960,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09290017",
             "Name": "Handschwengelpumpe",
@@ -974,7 +974,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte(Typ Gotik)Kirchplatz Gohlis, an der Lützowstraße",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09292773",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1014,7 +1014,7 @@
             "Beschreibung": "Handschwengelpumpe Nr.18 mit Brunnenschacht und Abdeckplatte(Typ Gotik)vor Nr.15 / 17",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09296136",
             "Name": "Handschwengelpumpe",
@@ -1028,7 +1028,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte auf einem kleinen Platz vor Nr.52(Typ Delphin; Insel hinter dem Teich)",
             "Bild": "Handschwengelpumpe Leinestraße Leipzig 2.JPG",
             "Commonscat": "Leinestraße Village pump(Leipzig)",
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09291505",
             "Name": "Handschwengelpumpe",
@@ -1042,7 +1042,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte Ecke Grünewaldstraße(Typ Gotik)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09291162",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1069,7 +1069,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in Ecklage Berggartenstraße vor Nr.1(Typ Delphin)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09296547",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1122,7 +1122,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte; Typ Kleiner Löwe",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09293347",
             "Name": "Handschwengelpumpe[Torso]",
@@ -1149,7 +1149,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Haus Nr.115(Typ Delphin)",
             "Bild": "Handschwengelpumpe Ludwigstraße 115 10-2015.JPG",
             "Commonscat": null,
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09294584",
             "Name": "Handschwengelpumpe",
@@ -1163,7 +1163,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Nr.99 in Ecklage Elisabethstraße(Typ Delphin)",
             "Bild": "Handschwengelpumpe Ludwigstraße 99 10-2015.JPG",
             "Commonscat": null,
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09290375",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1230,7 +1230,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Nr.102 in Ecklage Idastraße(Typ Delphin)",
             "Bild": "Handschwengelpumpe Mariannenstraße 102-2 10-2015.JPG",
             "Commonscat": "Mariannenstraße Village pump(3)(Leipzig)",
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09294887",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1270,7 +1270,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Fassung",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09297155",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1297,7 +1297,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte(Typ Delphin)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09294879",
             "Name": "Handschwengelpumpe[Torso]",
@@ -1376,7 +1376,7 @@
             "Beschreibung": "Brunnenschacht und Abdeckplatte einer Handschwengelpumpe vor der Hoffront Haus 39 des ehemaligen Kasernengeländes",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09264372",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1403,7 +1403,7 @@
             "Beschreibung": "Drei Handschwengelpumpen mit Brunnenschacht und Abdeckplatte auf dem Ostfriedhof, 3.Abteilung und vor der Kapelle Oststraße Nr.119",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten prüfen"
+            "Bemerkung": "Zustand unklar + Koordinaten prüfen"
         }, {
             "ID": "09297307",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1430,7 +1430,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte(am Floßplatz)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09297205",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1470,7 +1470,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in den ehemaligen Gärten zwischen Philipp-Rosenthal-Straße und Prager Straße(Typ K)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09263032",
             "Name": "Handschwengelpumpe[Torso]",
@@ -1497,7 +1497,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Nr.11",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09297085",
             "Name": "Handschwengelpumpe",
@@ -1511,7 +1511,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte gegenüber Nr.29, neben Nr.25(am ehemaligen Dorfteich Connewitz)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09292413",
             "Name": "Handschwengelpumpe",
@@ -1525,7 +1525,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte auf dem Grundstückshof",
             "Bild": "Handschwengelpumpe Prinz-Eugen-Straße 19 Leipzig.JPG",
             "Commonscat": null,
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09294889",
             "Name": "Handschwengelpumpe[abgebaut]",
@@ -1565,7 +1565,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht vor Nr.29 in Ecklage Witzgallstraße(Typ Großer Löwe)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09297218",
             "Name": "Handschwengelpumpe",
@@ -1579,7 +1579,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht in Ecklage Harkortstraße, gegenüber Riemannstraße 54(Typ Kleiner Löwe)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09262177",
             "Name": "Handschwengelpumpe",
@@ -1593,7 +1593,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten prüfen: 'im Friedhof auf dem Hauptweg'"
+            "Bemerkung": "Zustand unklar + Koordinaten prüfen: 'im Friedhof auf dem Hauptweg'"
         }, {
             "ID": "09290538",
             "Name": "Handschwengelpumpe",
@@ -1607,7 +1607,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte Ecke Hofmeisterstraße(Typ Großer Löwe)",
             "Bild": "Rosa-Luxemburg-Straße Leipzig Juli 2013 002.JPG",
             "Commonscat": "Rosa-Luxemburg-Straße Village pump(1)(Leipzig)",
-        "Bemerkung": "Zustand: erhalten"
+            "Bemerkung": "Zustand: erhalten"
         }, {
             "ID": "09293498",
             "Name": "Handschwengelpumpe",
@@ -1621,7 +1621,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte, Typ Kleiner Löwe",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09299340",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1662,7 +1662,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte vor Nr.4 auf dem Dorfanger(Typ Delphin)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten prüfen"
+            "Bemerkung": "Zustand unklar + Koordinaten prüfen"
         }, {
             "ID": "09294851",
             "Name": "Handschwengelpumpe",
@@ -1676,7 +1676,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in Ecklage Georg-Schumann-Straße(Typ Delphin)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten prüfen"
+            "Bemerkung": "Zustand unklar + Koordinaten prüfen"
         }, {
             "ID": "09294528",
             "Name": "Handschwengelpumpe",
@@ -1690,7 +1690,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte, in Ecklage Magdalenenstraße(Typ Vogelkäfig)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten erfassen"
+            "Bemerkung": "Zustand unklar + Koordinaten erfassen"
         }, {
             "ID": "09293047",
             "Name": "Handschwengelpumpe[rekonstruiert]",
@@ -1717,7 +1717,7 @@
             "Beschreibung": "Handschwengelpumpe mit Brunnenschacht und Abdeckplatte in Ecklage Schreberstraße(Ganzplatte)",
             "Bild": null,
             "Commonscat": null,
-        "Bemerkung": "Zustand unklar + Koordinaten prüfen"
+            "Bemerkung": "Zustand unklar + Koordinaten prüfen"
         }, {
             "ID": "09292785",
             "Name": "Handschwengelpumpe[abgebaut]",

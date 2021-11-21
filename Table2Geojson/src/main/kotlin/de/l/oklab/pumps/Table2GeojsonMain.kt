@@ -304,7 +304,7 @@ private fun getDetailedPhysicalState(
 fun getType(pump: Pump): Type {
     if (pump.description != null) {
         for (type in Type.values()) {
-            if (pump.description?.indexOf("Typ ${type.translated}") >= 0) {
+            if (pump.description.indexOf("Typ ${type.translated}") >= 0) {
                 return type;
             }
         }
