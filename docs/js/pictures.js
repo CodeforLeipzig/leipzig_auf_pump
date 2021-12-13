@@ -12,7 +12,8 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
   };
   const updatePictures = (state, properties) => {
     resetPictures();
-    const id = (properties && properties["numberAnke"]) || state.getSelectedPump()
+    const id = (properties && properties["numberAnke"]) || state.getSelectedPump();
+    const openBox = (items) => fancybox.Fancybox.show(items);
     if (id) {
       if ($("#pumpsPhotoContainer > img").length == 0) {
         const images = Array();
@@ -24,12 +25,22 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
           const creditLines = resolvedImages.map(resolvedImage => readFile(resolvedImage, "html"));
           Promise.all(creditLines).then(creditLineResults => {
             if (resolvedImages.length > 0) {
+              const items = [];
               for (var i=0; i<resolvedImages.length; i++) {
                 const path = resolvedImages[i];
                 const creditLine = creditLineResults.find(res => res.url === path);
                 const caption = creditLine && creditLine.result.status === 200 && creditLine.result.responseText || "";
                 const text = (i == 0) ? caption : "";
-                $("#pumpsPhotoContainer").append("<a data-fancybox='gallery' data-caption='" + caption + "' data-src='./" + resolvedImages[i] + ".jpg'><img alt='Noch keine Fotos verfügbar' src='./" + resolvedImages[i] + ".jpg' style='height:" + ((i==0) ? 250 : 0) + "px' />" + text + "</a>");
+                items.push({
+                  src  : "./" + resolvedImages[i] + ".jpg",
+                  opts : {
+                    caption: text,
+                  }
+                });
+                if (i===0) {
+                  $("#pumpsPhotoContainer").append("<a id='openGallery'><img alt='Noch keine Fotos verfügbar' src='" + base + "/" + resolvedImages[i] + ".jpg' style='height: 250px' />" + text + "</a>");
+                  $("#openGallery").click(() => openBox(items));
+                }
               }
             } else {
               $("#pumpsPhotoContainer").append("<a>Keine Fotos erfasst</a>");
