@@ -1,8 +1,6 @@
 define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
   const resetPictures = () => {
-    for (var i=0; i<5; i++) {
-      $("#pumpsPhotoContainer a:last-child").remove();
-    }
+    $("#pumpsPhotoContainer").remove("a");
   };
   const base = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://codeforleipzig.github.io/leipzig_auf_pump/";
   const readFile = (url, ext) => {
@@ -18,7 +16,7 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
     if (id) {
       if ($("#pumpsPhotoContainer > img").length == 0) {
         const images = Array();
-        for (var i=1; i<=5; i++) {
+        for (var i=1; i<=10; i++) {
           images.push(readFile('images/' + id + '/0' + i, 'jpg'))
         }
         Promise.all(images).then(imageResults => {
