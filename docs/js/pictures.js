@@ -31,11 +31,11 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
                 const creditLine = creditLineResults.find(res => res.url === path);
                 const caption = creditLine && creditLine.result.status === 200 && creditLine.result.responseText || "";
                 const text = (i == 0) ? caption : "";
+                const source = "./" + resolvedImages[i] + ".jpg";
                 items.push({
-                  src  : "./" + resolvedImages[i] + ".jpg",
-                  opts : {
-                    caption: text,
-                  }
+                  src: source,
+                  thumb: source,
+                  caption: text
                 });
                 if (i===0) {
                   $("#pumpsPhotoContainer").append("<a id='openGallery'><img alt='Noch keine Fotos verfügbar' src='" + base + "/" + resolvedImages[i] + ".jpg' style='height: 250px' />" + text + "</a>");
