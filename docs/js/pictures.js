@@ -5,9 +5,10 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
   const base = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://codeforleipzig.github.io/leipzig_auf_pump/";
   const readFile = (url, ext) => {
     return $.get(base+url+"." + ext).then((result, status, xhr) => {
+      console.log(result)
       return { url, result: { status: xhr && xhr.status, responseText: (ext == "html") ? xhr.responseText : null } }
-    }).catch((result) => {
-      return { url, result: { status: result && result.status} }
+    }).catch((result, other) => {
+      return { url, result: { status: result && result.status, responseText: (ext == "html") ? result.responseText : null } }
     });
   };
   const updatePictures = (state, properties) => {
@@ -30,15 +31,17 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
                 const path = resolvedImages[i];
                 const creditLine = creditLineResults.find(res => res.url === path);
                 const caption = creditLine && creditLine.result.status === 200 && creditLine.result.responseText || "";
-                const text = (i == 0) ? caption : "";
                 const source = "./" + resolvedImages[i] + ".jpg";
                 items.push({
                   src: source,
                   thumb: source,
-                  caption: text
+                  opts: {
+                    caption: caption
+                  },
+                  caption: caption
                 });
                 if (i===0) {
-                  $("#pumpsPhotoContainer").append("<a id='openGallery'><img alt='Noch keine Fotos verfügbar' src='" + base + "/" + resolvedImages[i] + ".jpg' style='height: 250px' />" + text + "</a>");
+                  $("#pumpsPhotoContainer").append("<a id='openGallery'><img alt='Noch keine Fotos verfügbar' src='" + base + "/" + resolvedImages[i] + ".jpg' style='height: 225px' />" + caption + "</a>");
                   $("#openGallery").click(() => openBox(items));
                 }
               }
