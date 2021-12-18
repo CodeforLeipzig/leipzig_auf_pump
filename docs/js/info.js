@@ -108,6 +108,16 @@ define(["jquery", "leaflet", "district", "address", "pump_type", "pump_physicalS
         if (props && props["osmId"]) {
           htmlInner += "<a target='_' href='https://www.openstreetmap.org/" + props["osmId"] + "'>vorhanden</a>"
         }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Eintrag in Wikipedia:</b> "
+        if (props && props["wikipediaPage"]) {
+          htmlInner += "<a target='_' href='https://commons.wikimedia.org/wiki/Category:" + props["wikipediaPage"].replace(" ", "_") + "'>vorhanden</a>"
+        }
+        htmlInner += "<br /><br />"
+        htmlInner += "<b>Eintrag in Denkmalliste:</b> "
+        if (props && props["wikipediaId"]) {
+          htmlInner += "<a target='_' href='https://denkmalliste.denkmalpflege.sachsen.de/CardoMap/Denkmalliste_Report.aspx?HIDA_Nr=" + props["wikipediaId"] + "'>vorhanden</a>"
+        }
         if (props) {
           htmlInner += "<br /><br />"
         }

@@ -7,7 +7,7 @@ import de.l.oklab.pumps.utils.GeojsonUtils.readGenericGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.readGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
 
-const val outputPath = "D:/"
+const val outputPath = "D:\\git\\leipzig_auf_pump\\docs\\geojsons\\pumps"
 
 sealed class Config(
     val path: String,

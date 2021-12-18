@@ -15,8 +15,8 @@ fun main() {
     val osmPumps = readOsmPumps()
     csvPumps.forEach { csvPump ->
         val wikipediaPump = wikipediaPumps.find { it.id?.contentEquals(csvPump.wikipediaId) ?: false }
-        val osmPump = osmPumps.find { (it.properties.id?.contentEquals(csvPump.osmId) ?: false)
-                || (wikipediaPump != null && it.properties.sequentialId?.contentEquals(wikipediaPump.id) ?: false) }
+        val osmPump = osmPumps.find { (wikipediaPump != null && it.properties.sequentialId?.contentEquals(wikipediaPump.id) ?: false)
+                || (it.properties.id?.contentEquals(csvPump.osmId) ?: false)}
         try {
             features.add(feature(csvPump, wikipediaPump, osmPump))
         } catch (e: Exception) {
