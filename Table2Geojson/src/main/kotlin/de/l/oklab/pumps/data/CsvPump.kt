@@ -2,7 +2,7 @@ package de.l.oklab.pumps.data
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-open class Pump(
+open class CsvPump(
 
     @JsonProperty("Nummer [Anke]")
     val numberAnke: String? = null,
@@ -39,4 +39,10 @@ open class Pump(
 
     @JsonProperty("Kontrollen")
     val controlsDescription: String? = null,
+
+    @JsonProperty("WikipediaId")
+    val wikipediaId: String? = null,
+
+    @JsonProperty("OsmId")
+    val osmId: String? = null
 )

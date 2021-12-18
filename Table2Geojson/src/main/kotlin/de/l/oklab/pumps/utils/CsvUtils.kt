@@ -3,12 +3,11 @@ package de.l.oklab.pumps.utils
 import com.fasterxml.jackson.databind.MappingIterator
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
-import de.l.oklab.pumps.data.Pump
-import java.io.File
+import de.l.oklab.pumps.data.CsvPump
 
 object CsvUtils {
 
-    fun getPumpLines(): MappingIterator<Pump> {
+    fun getPumpLines(): MappingIterator<CsvPump> {
         val csvSchema = CsvSchema.builder().apply {
             addColumn("numberAnke", CsvSchema.ColumnType.STRING)
             addColumn("numberOfficial", CsvSchema.ColumnType.STRING)
@@ -28,8 +27,8 @@ object CsvUtils {
         }.build()
 
         val csvMapper = CsvMapper()
-        return csvMapper.readerFor(Pump::class.java)
+        return csvMapper.readerFor(CsvPump::class.java)
             .with(csvSchema)
-            .readValues(File("D:\\git\\leipzig_auf_pump\\Table2Geojson\\src\\main\\resources\\pumpen.csv"))
+            .readValues(javaClass.classLoader.getResourceAsStream("pumpen.csv"))
     }
 }

@@ -1,12 +1,10 @@
 package de.l.oklab.pumps
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.node.ArrayNode
+import de.l.oklab.pumps.data.GeojsonFeature
 import de.l.oklab.pumps.utils.DistrictUtils.filterByDistrictName
 import de.l.oklab.pumps.utils.DistrictUtils.getDistrictNames
+import de.l.oklab.pumps.utils.GeojsonUtils.readGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
-import java.io.File
 
 const val outputPath = "D:/"
 
@@ -24,20 +22,18 @@ fun main() {
 }
 
 fun execute(config: Config) {
-    val objectMapper = ObjectMapper()
-    val rootNode = objectMapper.readValue(File(config.path), JsonNode::class.java)
-    val featuresNode = rootNode.get("features") as ArrayNode
-    val districtNames = getDistrictNames(DistrictConfig(), featuresNode)
+    val rootNode = readGeojsonFile(config.path)
+    val districtNames = getDistrictNames(DistrictConfig(), rootNode.features)
     for (districtName in districtNames) {
         try {
-            storeDistrictGeojsonFile(config, districtName, featuresNode)
+            storeDistrictGeojsonFile(config, districtName, rootNode.features)
         } catch (e: Exception) {
             println("""$districtName: $e""")
         }
     }
 }
 
-fun storeDistrictGeojsonFile(config: Config, districtName: String, featuresNode: ArrayNode) {
-    val content = filterByDistrictName(config, districtName, featuresNode).map { it.toString() }
+fun storeDistrictGeojsonFile(config: Config, districtName: String, features: List<GeojsonFeature>) {
+    val content = filterByDistrictName(config, districtName, features)
     storeGeojsonFile(districtName, content)
 }

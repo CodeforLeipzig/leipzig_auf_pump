@@ -1,14 +1,15 @@
 package de.l.oklab.pumps.data
 
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class PumpToSerialize(
-    pump: Pump,
+    pump: CsvPump,
     var type: Type? = null,
     var state: State? = null,
     var controls: List<Check> = mutableListOf(),
     var feedings: List<Check> = mutableListOf()
-): Pump(
+) : CsvPump(
     numberAnke = pump.numberAnke,
     numberOfficial = pump.numberOfficial,
     name = pump.name,
@@ -21,7 +22,29 @@ class PumpToSerialize(
     stateDescription = pump.stateDescription,
     feedingDescription = pump.feedingDescription,
     controlsDescription = pump.controlsDescription,
-)
+) {
+
+    fun toMap(): Map<String, Any?> = mapOf(
+        "numberAnke" to numberAnke,
+        "numberOfficial" to numberOfficial,
+        "name" to name,
+        "district" to district,
+        "address" to address,
+        "date" to date,
+        "description" to description,
+        "type" to type?.translated,
+        "stateDescription" to stateDescription,
+        "physicalState" to state?.physicalState?.translated,
+        "detailedPhysicalState" to state?.detailedPhysicalState?.translated,
+        "operatingState" to state?.operatingState?.translated,
+        "feedingDescription" to feedingDescription,
+        "lastFeeding" to feedings.maxOfOrNull { it.date }?.format(dateTimeFormatter),
+        "controlsDescription" to controlsDescription,
+        "lastControl" to controls.maxOfOrNull { it.date }?.format(dateTimeFormatter)
+    )
+}
+
+private val dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
 
 enum class Type(val translated: String) {
     gotique("Gotik"),
@@ -32,13 +55,13 @@ enum class Type(val translated: String) {
     unknown("unbekannt")
 }
 
-data class State (
+data class State(
     val physicalState: PhysicalState,
     var detailedPhysicalState: DetailedPhysicalState,
     val operatingState: OperatingState?
 )
 
-enum class PhysicalState (val translated: String) {
+enum class PhysicalState(val translated: String) {
     existing("vorhanden"), nonExisting("nicht vorhanden"),
     unknown("unbekannt")
 }
@@ -59,6 +82,6 @@ data class Check(
     val result: CheckState
 )
 
-enum class CheckState (val translated: String) {
+enum class CheckState(val translated: String) {
     successful("erfolgreich"), failed("erfolglos")
 }

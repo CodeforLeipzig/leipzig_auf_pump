@@ -16,7 +16,7 @@ object PumpStateUtils {
         return state
     }
 
-    fun getOperatingState(physicalState: PhysicalState, pump: Pump): OperatingState {
+    fun getOperatingState(physicalState: PhysicalState, pump: CsvPump): OperatingState {
         if (physicalState == PhysicalState.nonExisting) return OperatingState.outOfOrder
         return if (pump.stateDescription != null) {
             if (pump.stateDescription.indexOf("nicht " + OperatingState.inOrder.translated) >= 0) {
@@ -60,7 +60,7 @@ object PumpStateUtils {
     }
 
     private fun getDetailedPhysicalState(
-        pump: Pump
+        pump: CsvPump
     ) = if (pump.name != null) {
         DetailedPhysicalState.values().find {
             pump.name.indexOf("[${it.translated}]") >= 0

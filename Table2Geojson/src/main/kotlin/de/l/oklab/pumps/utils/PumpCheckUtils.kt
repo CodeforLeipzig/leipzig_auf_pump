@@ -2,12 +2,12 @@ package de.l.oklab.pumps.utils
 
 import de.l.oklab.pumps.data.Check
 import de.l.oklab.pumps.data.CheckState
-import de.l.oklab.pumps.data.Pump
+import de.l.oklab.pumps.data.CsvPump
 import java.time.LocalDateTime
 
 object PumpCheckUtils {
 
-    fun getFeedings(pump: Pump): List<Check> {
+    fun getFeedings(pump: CsvPump): List<Check> {
         return if (pump.feedingDescription != null) {
             val segments = pump.feedingDescription.split(",").map { it.trim() }
             getChecks(segments)
@@ -16,7 +16,7 @@ object PumpCheckUtils {
         }
     }
 
-    fun getControls(pump: Pump): List<Check> {
+    fun getControls(pump: CsvPump): List<Check> {
         return if (pump.controlsDescription != null) {
             val segments = pump.controlsDescription.split(",").map { it.trim() }
             getChecks(segments)
