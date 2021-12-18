@@ -37,5 +37,8 @@ data class WikipediaPump(
     val image: String? = null,
 
     @JsonProperty("Commonscat")
-    val commonsCat: String? = null
+    val commonsCat: String? = null,
+
+    @JsonProperty("Bemerkung")
+    val notes: String? = null
 )

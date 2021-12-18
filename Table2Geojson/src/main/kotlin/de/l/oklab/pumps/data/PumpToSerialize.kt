@@ -19,36 +19,46 @@ data class PumpToSerialize(
     val feedingDescription: String? = null,
     val lastFeeding: String? = null,
     val controlsDescription: String? = null,
-    val lastControl: String? = null
+    val lastControl: String? = null,
+    val wikipediaId: String? = null,
+    val osmId: String? = null,
+    val wikipediaPage: String? = null
 ) {
     companion object {
 
         fun from(
             pump: CsvPump,
+            wikipediaPump: WikipediaPump? = null,
+            osmPump: OsmPump? = null,
             type: Type? = null,
             state: State? = null,
             controls: List<Check> = mutableListOf(),
             feedings: List<Check> = mutableListOf()
         ) = PumpToSerialize(
-            numberAnke = pump.numberAnke,
-            numberOfficial = pump.numberOfficial,
-            name = pump.name,
-            district = pump.district,
-            address = pump.address,
-            date = pump.date,
-            description = pump.description,
-            type = type?.translated,
-            stateDescription = pump.stateDescription,
-            physicalState = state?.physicalState?.translated,
-            detailedPhysicalState = state?.detailedPhysicalState?.translated,
-            operatingState = state?.operatingState?.translated,
-            feedingDescription = pump.feedingDescription,
-            lastFeeding = feedings.maxOfOrNull { it.date }?.format(dateTimeFormatter),
-            controlsDescription = pump.controlsDescription,
-            lastControl = controls.maxOfOrNull { it.date }?.format(dateTimeFormatter)
+            numberAnke = pump.numberAnke?.emptyToNull(),
+            numberOfficial = pump.numberOfficial?.emptyToNull(),
+            name = pump.name?.emptyToNull(),
+            district = pump.district?.emptyToNull(),
+            address = pump.address?.emptyToNull(),
+            date = pump.date?.emptyToNull(),
+            description = pump.description?.emptyToNull(),
+            type = type?.translated?.emptyToNull(),
+            stateDescription = pump.stateDescription?.emptyToNull(),
+            physicalState = state?.physicalState?.translated?.emptyToNull(),
+            detailedPhysicalState = state?.detailedPhysicalState?.translated?.emptyToNull(),
+            operatingState = state?.operatingState?.translated?.emptyToNull(),
+            feedingDescription = pump.feedingDescription?.emptyToNull(),
+            lastFeeding = feedings.maxOfOrNull { it.date }?.format(dateTimeFormatter)?.emptyToNull(),
+            controlsDescription = pump.controlsDescription?.emptyToNull(),
+            lastControl = controls.maxOfOrNull { it.date }?.format(dateTimeFormatter)?.emptyToNull(),
+            wikipediaId = wikipediaPump?.id?.emptyToNull(),
+            osmId = osmPump?.id?.emptyToNull(),
+            wikipediaPage = wikipediaPump?.commonsCat?.emptyToNull()
         )
     }
 }
+
+fun String.emptyToNull() = this.ifEmpty { null }
 
 private val dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
 

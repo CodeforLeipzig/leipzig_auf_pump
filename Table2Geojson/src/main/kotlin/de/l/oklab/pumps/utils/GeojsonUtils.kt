@@ -10,8 +10,14 @@ import java.util.*
 object GeojsonUtils {
     private val objectMapper = jacksonObjectMapper()
 
+    fun <T> readJsonListFile(fileName: String, clazz: Class<T>): List<T> = objectMapper.readValue(
+        javaClass.classLoader.getResourceAsStream(fileName), objectMapper.typeFactory.constructCollectionType(
+            List::class.java, clazz
+        )
+    )
+
     fun <T> readGeojsonFile(fileName: String, clazz: Class<T>): GeojsonFeatureCollection<T> = objectMapper.readValue(
-        File(fileName), objectMapper.typeFactory.constructParametricType(
+        javaClass.classLoader.getResourceAsStream(fileName), objectMapper.typeFactory.constructParametricType(
             GeojsonFeatureCollection::class.java, clazz
         )
     )
@@ -38,5 +44,6 @@ object GeojsonUtils {
         .replace("ß", "ss")
 
     fun toCoord(value: String?): Float? =
-        if (value.isNullOrEmpty()) null else (value.substring(0, 2) + "." + value.substring(2)).toFloat()
+        if (value.isNullOrEmpty()) null else if (value.indexOf(".") > 0) value.toFloat() else
+                (value.substring(0, 2) + "." + value.substring(2)).toFloat()
 }

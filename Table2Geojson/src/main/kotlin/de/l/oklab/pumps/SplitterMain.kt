@@ -14,7 +14,7 @@ sealed class Config(
     val idProp: String
 )
 
-data class PumpConfig(val id: String = "pump") : Config(path = "D:/alle.geojson", idProp = "district")
+data class PumpConfig(val id: String = "pump") : Config(path = "D:\\git\\leipzig_auf_pump\\docs\\geojsons\\pumps\\alle.geojson", idProp = "district")
 data class DistrictConfig(val id: String = "district") :
     Config(path = "D:\\git\\opendata-leipzig-playground\\docs\\ortsteile.json", idProp = id)
 
