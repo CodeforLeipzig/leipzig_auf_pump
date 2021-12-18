@@ -3,45 +3,51 @@ package de.l.oklab.pumps.data
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class PumpToSerialize(
-    pump: CsvPump,
-    var type: Type? = null,
-    var state: State? = null,
-    var controls: List<Check> = mutableListOf(),
-    var feedings: List<Check> = mutableListOf()
-) : CsvPump(
-    numberAnke = pump.numberAnke,
-    numberOfficial = pump.numberOfficial,
-    name = pump.name,
-    district = pump.district,
-    address = pump.address,
-    lat = pump.lat,
-    lon = pump.lon,
-    date = pump.date,
-    description = pump.description,
-    stateDescription = pump.stateDescription,
-    feedingDescription = pump.feedingDescription,
-    controlsDescription = pump.controlsDescription,
+data class PumpToSerialize(
+    val numberAnke: String? = null,
+    val numberOfficial: String? = null,
+    val name: String? = null,
+    val district: String? = null,
+    val address: String? = null,
+    val date: String? = null,
+    val description: String? = null,
+    val type: String? = null,
+    val stateDescription: String? = null,
+    val physicalState: String? = null,
+    val detailedPhysicalState: String? = null,
+    val operatingState: String? = null,
+    val feedingDescription: String? = null,
+    val lastFeeding: String? = null,
+    val controlsDescription: String? = null,
+    val lastControl: String? = null
 ) {
+    companion object {
 
-    fun toMap(): Map<String, Any?> = mapOf(
-        "numberAnke" to numberAnke,
-        "numberOfficial" to numberOfficial,
-        "name" to name,
-        "district" to district,
-        "address" to address,
-        "date" to date,
-        "description" to description,
-        "type" to type?.translated,
-        "stateDescription" to stateDescription,
-        "physicalState" to state?.physicalState?.translated,
-        "detailedPhysicalState" to state?.detailedPhysicalState?.translated,
-        "operatingState" to state?.operatingState?.translated,
-        "feedingDescription" to feedingDescription,
-        "lastFeeding" to feedings.maxOfOrNull { it.date }?.format(dateTimeFormatter),
-        "controlsDescription" to controlsDescription,
-        "lastControl" to controls.maxOfOrNull { it.date }?.format(dateTimeFormatter)
-    )
+        fun from(
+            pump: CsvPump,
+            type: Type? = null,
+            state: State? = null,
+            controls: List<Check> = mutableListOf(),
+            feedings: List<Check> = mutableListOf()
+        ) = PumpToSerialize(
+            numberAnke = pump.numberAnke,
+            numberOfficial = pump.numberOfficial,
+            name = pump.name,
+            district = pump.district,
+            address = pump.address,
+            date = pump.date,
+            description = pump.description,
+            type = type?.translated,
+            stateDescription = pump.stateDescription,
+            physicalState = state?.physicalState?.translated,
+            detailedPhysicalState = state?.detailedPhysicalState?.translated,
+            operatingState = state?.operatingState?.translated,
+            feedingDescription = pump.feedingDescription,
+            lastFeeding = feedings.maxOfOrNull { it.date }?.format(dateTimeFormatter),
+            controlsDescription = pump.controlsDescription,
+            lastControl = controls.maxOfOrNull { it.date }?.format(dateTimeFormatter)
+        )
+    }
 }
 
 private val dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")

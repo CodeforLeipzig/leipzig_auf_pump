@@ -7,19 +7,18 @@ import de.l.oklab.pumps.utils.PumpStateUtils.getState
 
 object PumpGeoJsonUtils {
 
-    fun feature(jsonPump: CsvPump): GeojsonFeature {
-        val pump = PumpToSerialize(
+    fun feature(jsonPump: CsvPump): GeojsonFeature<PumpToSerialize> {
+        val pump = PumpToSerialize.from(
             pump = jsonPump,
-            state = State(PhysicalState.unknown, DetailedPhysicalState.notSpecified, OperatingState.unknown),
+            state = getState(jsonPump),
             type = getType(jsonPump),
             controls = getControls(jsonPump),
             feedings = getFeedings(jsonPump),
         )
-        pump.state = getState(pump)
         return GeojsonFeature(
             id = pump.numberAnke,
-            properties = pump.toMap(),
-            geometry = Geometry.from(pump.lat, pump.lon)
+            properties = pump,
+            geometry = Geometry.from(jsonPump.lat, jsonPump.lon)
         )
     }
 
@@ -27,7 +26,7 @@ object PumpGeoJsonUtils {
         if (pump.description != null) {
             for (type in Type.values()) {
                 if (pump.description.indexOf("Typ ${type.translated}") >= 0) {
-                    return type;
+                    return type
                 }
             }
         }

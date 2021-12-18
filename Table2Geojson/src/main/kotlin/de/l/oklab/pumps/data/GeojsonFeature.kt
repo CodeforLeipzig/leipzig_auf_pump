@@ -2,14 +2,14 @@ package de.l.oklab.pumps.data
 
 import de.l.oklab.pumps.utils.GeojsonUtils.toCoord
 
-data class GeojsonFeatureCollection(
+data class GeojsonFeatureCollection<T>(
     val type: String = "FeatureCollection",
-    val features: List<GeojsonFeature>
+    val features: List<GeojsonFeature<T>>
 )
 
-data class GeojsonFeature(
+data class GeojsonFeature<T>(
     val type: String = "Feature",
-    val properties: Map<String, Any?>,
+    val properties: T,
     val geometry: Geometry? = null,
     val id: String? = null
 )

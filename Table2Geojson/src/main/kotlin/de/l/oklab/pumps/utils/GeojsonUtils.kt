@@ -1,6 +1,6 @@
 package de.l.oklab.pumps.utils
 
-import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import de.l.oklab.pumps.data.GeojsonFeature
 import de.l.oklab.pumps.data.GeojsonFeatureCollection
 import de.l.oklab.pumps.outputPath
@@ -8,12 +8,22 @@ import java.io.File
 import java.util.*
 
 object GeojsonUtils {
+    private val objectMapper = jacksonObjectMapper()
 
-    fun readGeojsonFile(fileName: String) : GeojsonFeatureCollection =
-        ObjectMapper().readValue(File(fileName), GeojsonFeatureCollection::class.java)
+    fun <T> readGeojsonFile(fileName: String, clazz: Class<T>): GeojsonFeatureCollection<T> = objectMapper.readValue(
+        File(fileName), objectMapper.typeFactory.constructParametricType(
+            GeojsonFeatureCollection::class.java, clazz
+        )
+    )
 
-    fun storeGeojsonFile(fileName: String, features: List<GeojsonFeature>) {
-        val objectMapper = ObjectMapper()
+    fun readGenericGeojsonFile(fileName: String): GeojsonFeatureCollection<Map<String, Any?>> = objectMapper.readValue(
+        File(fileName), objectMapper.typeFactory.constructParametricType(
+            GeojsonFeatureCollection::class.java,
+            objectMapper.typeFactory.constructMapType(Map::class.java, String::class.java, Any::class.java)
+        )
+    )
+
+    fun <T> storeGeojsonFile(fileName: String, features: List<GeojsonFeature<T>>) {
         val root = GeojsonFeatureCollection(features = features)
         val normalizedFileName = normalizeName(fileName)
         val file = File("""$outputPath/$normalizedFileName.geojson""")

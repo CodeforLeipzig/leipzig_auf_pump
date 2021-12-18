@@ -3,6 +3,7 @@ package de.l.oklab.pumps
 import de.l.oklab.pumps.data.GeojsonFeature
 import de.l.oklab.pumps.utils.DistrictUtils.filterByDistrictName
 import de.l.oklab.pumps.utils.DistrictUtils.getDistrictNames
+import de.l.oklab.pumps.utils.GeojsonUtils.readGenericGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.readGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
 
@@ -22,7 +23,7 @@ fun main() {
 }
 
 fun execute(config: Config) {
-    val rootNode = readGeojsonFile(config.path)
+    val rootNode = readGenericGeojsonFile(config.path)
     val districtNames = getDistrictNames(DistrictConfig(), rootNode.features)
     for (districtName in districtNames) {
         try {
@@ -33,7 +34,7 @@ fun execute(config: Config) {
     }
 }
 
-fun storeDistrictGeojsonFile(config: Config, districtName: String, features: List<GeojsonFeature>) {
+fun storeDistrictGeojsonFile(config: Config, districtName: String, features: List<GeojsonFeature<Map<String, Any?>>>) {
     val content = filterByDistrictName(config, districtName, features)
     storeGeojsonFile(districtName, content)
 }

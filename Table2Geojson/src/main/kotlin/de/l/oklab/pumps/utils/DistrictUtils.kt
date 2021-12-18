@@ -5,7 +5,7 @@ import de.l.oklab.pumps.data.GeojsonFeature
 
 object DistrictUtils {
 
-    fun getDistrictNames(config: Config, features: List<GeojsonFeature>): List<String> {
+    fun getDistrictNames(config: Config, features: List<GeojsonFeature<Map<String, Any?>>>): List<String> {
         val names = mutableSetOf<String>()
         features.forEach { it.properties[config.idProp]?.let { name -> names.add(name.toString()) } }
         return names.toList().sorted()
@@ -14,7 +14,7 @@ object DistrictUtils {
     fun filterByDistrictName(
         config: Config,
         districtName: String,
-        features: List<GeojsonFeature>
-    ): List<GeojsonFeature> =
-        features.filter { node -> node.properties.get(config.idProp)?.toString() == districtName }
+        features: List<GeojsonFeature<Map<String, Any?>>>
+    ): List<GeojsonFeature<Map<String, Any?>>> =
+        features.filter { node -> node.properties[config.idProp]?.toString() == districtName }
 }

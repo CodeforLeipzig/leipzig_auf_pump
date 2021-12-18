@@ -1,12 +1,13 @@
 package de.l.oklab.pumps
 
 import de.l.oklab.pumps.data.GeojsonFeature
+import de.l.oklab.pumps.data.PumpToSerialize
 import de.l.oklab.pumps.utils.CsvUtils.getPumpLines
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
 import de.l.oklab.pumps.utils.PumpGeoJsonUtils.feature
 
 fun main() {
-    val features = mutableListOf<GeojsonFeature>()
+    val features = mutableListOf<GeojsonFeature<PumpToSerialize>>()
     val pumpLines = getPumpLines()
     pumpLines.forEach {
         try {

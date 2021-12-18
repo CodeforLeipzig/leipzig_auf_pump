@@ -21,6 +21,8 @@ object CsvUtils {
             addColumn("stateDescription", CsvSchema.ColumnType.STRING)
             addColumn("feedingDescription", CsvSchema.ColumnType.STRING)
             addColumn("controlsDescription", CsvSchema.ColumnType.STRING)
+            addColumn("wikipediaId", CsvSchema.ColumnType.STRING)
+            addColumn("osmId", CsvSchema.ColumnType.STRING)
             setColumnSeparator(',')
             setQuoteChar('"')
             setSkipFirstDataRow(true)
