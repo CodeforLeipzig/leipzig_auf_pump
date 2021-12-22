@@ -1,6 +1,7 @@
 package de.l.oklab.pumps
 
 import de.l.oklab.pumps.data.GeojsonFeature
+import de.l.oklab.pumps.data.OsmPump
 import de.l.oklab.pumps.data.PumpToSerialize
 import de.l.oklab.pumps.utils.CsvUtils.getPumpLines
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
@@ -10,6 +11,7 @@ import de.l.oklab.pumps.utils.WikipediaUtils.readWikipediaPumps
 
 fun main() {
     val features = mutableListOf<GeojsonFeature<PumpToSerialize>>()
+    val basicOsmFeatures = mutableListOf<GeojsonFeature<OsmPump>>()
     val csvPumps = getPumpLines()
     val wikipediaPumps = readWikipediaPumps()
     val osmPumps = readOsmPumps()
@@ -23,5 +25,12 @@ fun main() {
             println(e.message)
         }
     }
+    osmPumps.forEach { osmPump ->
+        val alreadyExisting = features.find { feature -> feature.geometry?.coordinates.toString() == osmPump.geometry?.coordinates.toString() }
+        if (alreadyExisting == null) {
+            basicOsmFeatures.add(osmPump)
+        }
+    }
     storeGeojsonFile("alle", features)
+    storeGeojsonFile("osmpumps", basicOsmFeatures)
 }
