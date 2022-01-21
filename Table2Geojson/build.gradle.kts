@@ -12,8 +12,6 @@ java {
 }
 
 repositories {
-    jcenter()
-    maven("https://repo.maven.apache.org/maven2/")
     mavenCentral()
 }
 

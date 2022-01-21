@@ -47,7 +47,6 @@ object PumpStateUtils {
         DetailedPhysicalState.removed -> PhysicalState.nonExisting
         DetailedPhysicalState.stub -> PhysicalState.nonExisting
         DetailedPhysicalState.notSpecified -> PhysicalState.unknown
-        else -> PhysicalState.unknown
     }
 
     private fun getDetailedPhysicalState(
