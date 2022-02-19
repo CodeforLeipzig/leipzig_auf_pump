@@ -20,8 +20,14 @@ require(["jquery", "map", "data", "shared_state", "info", "legend", "pictures", 
     contentType: "application/json; charset=utf-8"
   });
 
+  const getQueryStringValue = (uri, key) => {
+    var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+    var matches = uri.match(regex);
+    return matches == null ? null : matches[1];
+  }
   const pumpMap = map.create();
   const globalState = state.state();
+  globalState.setPumpId(getQueryStringValue(window.location.href, 'pumpId'));
   globalState.setPumpMap(pumpMap);
   const infoBox = info.configureInfo(globalState, data);
   const legendBox = legend.configureLegend();

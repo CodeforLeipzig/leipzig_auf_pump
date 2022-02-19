@@ -1,6 +1,7 @@
 define({
   state: () => {
     var zoomLevel = 15;
+    var pumpId;
     var pumpMap;
     var lastSelectedDistrict;
     var lastSelectedAddress;
@@ -41,6 +42,7 @@ define({
 
     return {
       getZoomLevel: () => { return zoomLevel },
+      getPumpId: () =>  { return pumpId },
       getPumpMap: () => { return pumpMap },
       getLastSelectedDistrict: () => { return lastSelectedDistrict },
       getLastSelectedAddress: () => { return lastSelectedAddress },
@@ -83,6 +85,7 @@ define({
       isShareLocation: () => { return shareLocation; },
       getPumpColor: (pumpId) => pumpColors.get(pumpId) || 'lightgreen',
 
+      setPumpId: (newPumpId) => { pumpId = newPumpId },
       setPumpMap: (newPumpMap) => { pumpMap = newPumpMap },
       setLastSelectedDistrict: (newLastSelectedDistrict) => { lastSelectedDistrict = newLastSelectedDistrict },
       setLastSelectedAddress: (newLastSelectedAddress) => { lastSelectedAddress = newLastSelectedAddress },

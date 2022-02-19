@@ -12,6 +12,7 @@ define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon",
     geoJsonLayer.on('click', registerLayerMouseClick(state, icon, info, pictures));
     state.getInfo().update();
     state.getPictures().update();
+    showPumpForId(geoJsonLayer, state, icon, info);
   }
 });
 
@@ -37,6 +38,7 @@ function registerLayerMouseOut(state, icon, info, pictures, geoJsonLayer) {
 
 function registerLayerMouseClick(state, icon, info, pictures) {
   return (e) => {
+    state.setPumpId(null);
     var coordinates = e.layer.feature.geometry.coordinates;
     var layer = e.layer;
     if (state.getLastCoordinates() != coordinates) {
@@ -54,4 +56,31 @@ function registerLayerMouseClick(state, icon, info, pictures) {
     }
     state.setOldLayer(layer);
   }
+}
+
+function showPumpForId(geoJsonLayer, state, icon, info) {
+  if (!state.getPumpId()) return;
+  var featureKeys = Object.keys(geoJsonLayer._layers);
+  var keys = featureKeys.filter(key => geoJsonLayer._layers[key].feature.properties["numberAnke"] === state.getPumpId());
+  var newFeature = keys.length > 0 ? geoJsonLayer._layers[keys[0]] : null;
+  if (!newFeature) return;
+  var e = {
+    target: geoJsonLayer,
+    layer: newFeature
+  }
+  var coordinates = newFeature.feature.geometry.coordinates;
+  const position = [coordinates[1], coordinates[0]];
+  state.getPumpMap().setView(position, state.getZoomLevel())
+  var layer = e.layer;
+  if (state.getLastCoordinates() != coordinates) {
+    if (state.getLastCoordinates()) {
+      icon.resetIcon(state);
+      icon.changeIcon(state, e);
+    }
+    state.setSelectedPump(e.layer.feature.properties["numberAnke"]);
+    icon.changeIcon(state, e);
+    info.highlightFeature(state, e);
+    state.setLastCoordinates(coordinates);
+  }
+  state.setOldLayer(layer);
 }
