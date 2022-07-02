@@ -18,8 +18,8 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
     if (id) {
       if ($("#pumpsPhotoContainer > img").length == 0) {
         const images = Array();
-        for (var i=1; i<=10; i++) {
-          images.push(readFile('images/' + id + '/0' + i, 'jpg'))
+        for (var i=1; i<=20; i++) {
+          images.push(readFile('images/' + id + '/' + ((i < 10) ? '0' : '') + i, 'jpg'))
         }
         Promise.all(images).then(imageResults => {
           const resolvedImages = imageResults.map(img => img.result && img.result.status === 200 ? img.url : null).filter(res => res != null);

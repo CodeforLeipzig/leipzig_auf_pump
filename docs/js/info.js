@@ -111,7 +111,7 @@ define(["jquery", "leaflet", "district", "address", "pump_type", "pump_physicalS
         htmlInner += "<br /><br />"
         htmlInner += "<b>Eintrag in Wikipedia:</b> "
         if (props && props["wikipediaPage"]) {
-          htmlInner += "<a target='_' href='https://commons.wikimedia.org/wiki/Category:" + props["wikipediaPage"].replace(" ", "_") + "'>vorhanden</a>"
+          htmlInner += "<a target='_' href='https://commons.wikimedia.org/wiki/Category:" + props["wikipediaPage"].replace(/\s/g, '_') + "'>vorhanden</a>"
         }
         htmlInner += "<br /><br />"
         htmlInner += "<b>Eintrag in Denkmalliste:</b> "
