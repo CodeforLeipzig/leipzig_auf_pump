@@ -28,7 +28,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("de.l.oklab.pumps.Table2GeojsonMain")
+    mainClass.set("de.l.oklab.pumps.Table2GeojsonMainKt")
 }
 
 
