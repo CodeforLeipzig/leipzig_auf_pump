@@ -7,16 +7,16 @@ import de.l.oklab.pumps.utils.GeojsonUtils.readGenericGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.readGeojsonFile
 import de.l.oklab.pumps.utils.GeojsonUtils.storeGeojsonFile
 
-const val outputPath = "D:\\git\\leipzig_auf_pump\\docs\\geojsons\\pumps"
+val outputPath = "${System.getProperty("user.dir")}/../docs/geojsons/pumps"
 
 sealed class Config(
     val path: String,
     val idProp: String
 )
 
-data class PumpConfig(val id: String = "pump") : Config(path = "D:\\git\\leipzig_auf_pump\\docs\\geojsons\\pumps\\alle.geojson", idProp = "district")
+data class PumpConfig(val id: String = "pump") : Config(path = "${System.getProperty("user.dir")}/../docs/geojsons/pumps/alle.geojson", idProp = "district")
 data class DistrictConfig(val id: String = "district") :
-    Config(path = "D:\\git\\opendata-leipzig-playground\\docs\\ortsteile.json", idProp = id)
+    Config(path = "${System.getProperty("user.dir")}/../docs/ortsteile.json", idProp = id)
 
 fun main() {
     execute(PumpConfig())
