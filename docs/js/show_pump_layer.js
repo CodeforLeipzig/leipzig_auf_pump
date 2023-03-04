@@ -81,7 +81,7 @@ function showPumpForId(geoJsonLayer, state, icon, info, jquery, showTreeLayer) {
     icon.changeIcon(state, e);
     info.highlightFeature(state, e);
     state.setLastCoordinates(coordinates);
-    jquery.getJSON(`geojsons/trees/${pumpId}.geojson`, data => showTreeLayer(state, data));
+    jquery.getJSON(`geojsons/trees/${state.getPumpId()}.geojson`, data => showTreeLayer(state, data));
   }
   state.setOldLayer(layer);
 }
