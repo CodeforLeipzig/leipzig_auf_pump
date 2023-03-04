@@ -1,4 +1,4 @@
-define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures"], ($, leaflet, leafletClusterMap, updateProgressBar, map, icon, info, pictures) => {
+define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures", "data"], ($, leaflet, leafletClusterMap, updateProgressBar, map, icon, info, pictures, data) => {
   return (state, data) => {
     state.setMatchCount(0);
     var clusterLayer = leaflet.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar, maxClusterRadius: () => 25 });
@@ -12,7 +12,7 @@ define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon",
     geoJsonLayer.on('click', registerLayerMouseClick(state, icon, info, pictures));
     state.getInfo().update();
     state.getPictures().update();
-    showPumpForId(geoJsonLayer, state, icon, info, map);
+    showPumpForId(geoJsonLayer, state, icon, info, data);
   }
 });
 
@@ -58,7 +58,7 @@ function registerLayerMouseClick(state, icon, info, pictures) {
   }
 }
 
-function showPumpForId(geoJsonLayer, state, icon, info, map) {
+function showPumpForId(geoJsonLayer, state, icon, info, data) {
   if (!state.getPumpId()) return;
   var featureKeys = Object.keys(geoJsonLayer._layers);
   var keys = featureKeys.filter(key => geoJsonLayer._layers[key].feature.properties["numberAnke"] === state.getPumpId());
@@ -81,7 +81,7 @@ function showPumpForId(geoJsonLayer, state, icon, info, map) {
     icon.changeIcon(state, e);
     info.highlightFeature(state, e);
     state.setLastCoordinates(coordinates);
-    map.loadTreeData(state, state.getPumpId());
+    data.loadTreeData(state, state.getPumpId());
   }
   state.setOldLayer(layer);
 }
