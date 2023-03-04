@@ -62,6 +62,23 @@ define(["jquery", "leaflet"], ($, leaflet) => ({
       return L.circleMarker(latlng, options);
     }
   },
+  createTreeCircleMarker: (state) => (feature, latlng) => {
+    const age = 2023 - feature.properties.pflanzjahr
+    if (age <= 15) {
+      fillColor = "orange";
+    } else {
+      fillColor = "darkgreen";
+    }
+    var options = {
+      radius: 8,
+      fillColor: fillColor,
+      color: "black",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.8
+    }
+    return L.circleMarker(latlng, options);
+  },
   districtCenter: (arr) => {
     var arrToUse;
     if (arr.length == 1) {
