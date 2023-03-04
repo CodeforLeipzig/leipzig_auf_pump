@@ -1,9 +1,9 @@
-define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures", "data"], ($, leaflet, leafletClusterMap, updateProgressBar, map, icon, info, pictures, dataModule) => {
-  return (state, data) => {
+define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon", "info", "pictures", "data"], ($, leaflet, leafletClusterMap, updateProgressBar, map, icon, info, pictures, data) => {
+  return (state, theData) => {
     state.setMatchCount(0);
     var clusterLayer = leaflet.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar, maxClusterRadius: () => 25 });
     state.setLastClusterLayer(clusterLayer);
-    var geoJsonLayer = leaflet.geoJson(data, { pointToLayer: map.createCircleMarker(state) });
+    var geoJsonLayer = leaflet.geoJson(theData, { pointToLayer: map.createCircleMarker(state) });
     state.setLastPumpLayer(geoJsonLayer);
     clusterLayer.addLayer(geoJsonLayer);
     state.getPumpMap().addLayer(clusterLayer);
@@ -12,7 +12,7 @@ define(["jquery", "leaflet", "leaflet.markercluster", "progress", "map", "icon",
     geoJsonLayer.on('click', registerLayerMouseClick(state, icon, info, pictures));
     state.getInfo().update();
     state.getPictures().update();
-    showPumpForId(geoJsonLayer, state, icon, info, dataModule);
+    showPumpForId(geoJsonLayer, state, icon, info, data);
   }
 });
 
