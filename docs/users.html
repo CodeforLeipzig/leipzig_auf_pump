@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Leipzig giesst: Nutzerverteilung</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+    <style>
+      #KarteMitPunkt { height: 960px; }
+      .info {
+	  padding: 6px 8px;
+	  font: 14px/16px Arial, Helvetica, sans-serif;
+	  background: white;
+	  background: rgba(255, 255, 255, 0.8);
+	  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	  border-radius: 5px;
+	}
+
+	.info h4 {
+	  margin: 0 0 5px;
+	  color: #777;
+	}
+	.legend {
+	  text-align: left;
+	  line-height: 18px;
+	  color: #555;
+	}
+	.legend i {
+	  width: 18px;
+	  height: 18px;
+	  float: left;
+	  margin-right: 8px;
+	  opacity: 1.0;
+	}
+    </style>
+  </head>
+  <body>
+    <p>
+      <div id="KarteMitPunkt" />
+    </p>
+    <script>
+      // Karte mit Mittelpunkt Leipzig erzeugen
+      const laengenGrad = 12.3742236;
+      const breitenGrad = 51.3399028;
+      const kartenMittelpunktKoordinaten = [ breitenGrad, laengenGrad ];
+      const zoomStufe = 14;
+      const karte = L.map('KarteMitPunkt').setView(kartenMittelpunktKoordinaten, zoomStufe);
+      // Hintergrundkarte setzen
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(karte);
+      
+      const svgIcon = (mapIconColor) => L.divIcon({
+  html: `
+<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149 178"><path fill="black" stroke="#FFF" stroke-width="6" stroke-miterlimit="10" d="M126 23l-6-6A69 69 0 0 0 74 1a69 69 0 0 0-51 22A70 70 0 0 0 1 74c0 21 7 38 22 52l43 47c6 6 11 6 16 0l48-51c12-13 18-29 18-48 0-20-8-37-22-51z"/><circle fill="${mapIconColor}" cx="74" cy="75" r="61"/><circle fill="#FFF" cx="74" cy="75" r="10"/></svg>`,
+  className: "",
+  iconSize: [24, 40],
+  iconAnchor: [12, 40],
+});
+
+      const valueWithTrailingOrEmpty = (value) => value ? (value + " ") : "";
+      const valueOrEmpty = (value) => value || "";
+      const concatValues = (values) => values.map((value, index) => (index == values.length-1) ? valueOrEmpty(value) : valueWithTrailingOrEmpty(value)).join("");
+      const wateredTreeCount = (eigenschaften) => (eigenschaften.trees && eigenschaften.trees.length) || 0;
+      const wateringCount = (eigenschaften) => eigenschaften.trees && eigenschaften.trees.map(tree => tree.watered_count).reduce((acc, curr) => acc + curr, 0) || 0;
+      const lastWatering = (eigenschaften) => valueOrEmpty(eigenschaften.trees && eigenschaften.trees.map(tree => tree.last_watered).sort().reverse().shift());
+      const registeredKey = "Registriert";
+      const updatedKey = "Profil zuletzt geändert";
+      const wateredTreeCountKey = "Gegossene Bäume";
+      const wateredCountKey = "Gießungen";
+      const lastWateredKey = "Letzte Gießung";
+      const lastLoginKey = "Letzter Login";
+      const props = (eigenschaften) => ({
+        "Email": valueOrEmpty(eigenschaften.email),
+	"Username": valueOrEmpty(eigenschaften.prefered_username || eigenschaften.username),
+	"Name": concatValues([eigenschaften.salutation, eigenschaften.given_name, eigenschaften.family_name]),
+	"Adresse": concatValues([eigenschaften.street_with_number, eigenschaften.zipcode]),
+	[registeredKey]: valueOrEmpty(eigenschaften.created),
+	[updatedKey]: valueOrEmpty(eigenschaften.updated),
+	[wateredTreeCountKey]: wateredTreeCount(eigenschaften),
+	[wateredCountKey]: wateringCount(eigenschaften),
+	[lastWateredKey]: lastWatering(eigenschaften),
+	[lastLoginKey]: valueOrEmpty(eigenschaften.last_seen)
+      });
+      const conds = [
+      	{ cond: (count) => !count, color: 'black' },
+      	{ cond: (count) => count >= 100, color: 'green' },
+      	{ cond: (count) => count >= 50, color: 'lightgreen' },
+      	{ cond: (count) => count >= 25, color: 'yellow' },
+      	{ cond: (count) => count >= 10, color: 'gold' },
+      	{ cond: (count) => count >= 5, color: 'orange' },
+      	{ cond: (count) => count >= 2, color: 'red' },
+      	{ cond: (count) => count >= 1, color: '#9B2242' },
+      ];
+      const colorByWateringCount = (count) => {
+        const found = conds.find(cond => cond.cond(count));
+        return found ? found.color : 'black';
+      }; 
+      const color = (featureProps) => {
+        const count = wateringCount(featureProps);
+        if (lastWatering(featureProps).localeCompare('2022-04') <= 0) {
+          return !count ? 'black' : (count > 25 ? "lightgray" : "gray");
+        }
+        return colorByWateringCount(count);
+      };       
+      
+      $.getJSON("users.geojson", (data) => {
+        const geojsonEbene = L.geoJson(data, {
+    	  pointToLayer: (feature, latlng) => {
+            return new L.marker(latlng, { icon: svgIcon(color(feature.properties))});
+          }
+        });
+        karte.addLayer(geojsonEbene);
+	  
+	  
+        const hoverZuMarkerAbstand = (aktuelleZoomStufe) => {
+	  return 0.39 / Math.pow(2, aktuelleZoomStufe - 6);
+	};
+	var geojsonEbenenHover;
+        geojsonEbene.on('mouseover', (ereignis) => {
+          const koordinaten = ereignis.layer.feature.geometry.coordinates;
+	  const hoverKoordinaten = [koordinaten[1] + hoverZuMarkerAbstand(karte.getZoom()), koordinaten[0]];
+	  if (karte) {
+            const properties = ereignis.layer.feature.properties;
+	    const content = "<div><ul>" +  Object.entries(props(properties)).map(([key, value]) => "<li><b>" + key + ": </b>" + value + "</li>").join("") + "</ul></div>"
+	    geojsonEbenenHover = L.popup()
+	      .setLatLng(hoverKoordinaten)
+	      .setContent(content)
+	      .openOn(karte);
+	  }
+        });
+	geojsonEbene.on('mouseout', function (ereignis) {
+          if (geojsonEbenenHover && karte) {
+	    karte.closePopup(geojsonEbenenHover);
+            geojsonEbenenHover = null;
+	  }
+	});
+      });
+      
+      var legend = L.control({
+        position: 'topright'
+      });
+      legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML = '<div style="font-weight: bold; padding-bottom: 5px">Nutzer-Aktivität</div>';
+        div.innerHTML += '<i style="background: black"></i>noch nie gegossen<br />';
+        div.innerHTML += '<i style="background: darkgray"></i>nur 2021 aktiv, weniger als 25 mal gegossen<br />';
+        div.innerHTML += '<i style="background: lightgray"></i>nur 2021 aktiv, mehr als 25 mal gegossen<br />';
+        div.innerHTML += '<i style="background: #9B2242"></i>1 mal gegossen<br />';
+        div.innerHTML += '<i style="background: red"></i>2 bis 4 mal gegossen<br />';
+        div.innerHTML += '<i style="background: orange"></i>5 bis 9 mal gegossen<br />';
+        div.innerHTML += '<i style="background: gold"></i>10 bis 24 mal gegossen<br />';
+        div.innerHTML += '<i style="background: yellow"></i>25 bis 50 mal gegossen<br />';
+        div.innerHTML += '<i style="background: lightgreen"></i>50 bis 100 mal gegossen<br />';
+        div.innerHTML += '<i style="background: green"></i>über 100 mal gegossen<br />';
+        return div;
+      };	
+      legend.addTo(karte);  
+    </script>
+  </body>
+</html>
