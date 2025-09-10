@@ -2,7 +2,7 @@ define(["jquery", "leaflet", "fancybox"], ($, leaflet, fancybox) => {
   const resetPictures = () => {
     $("#pumpsPhotoContainer").remove("a");
   };
-  const base = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://codeforleipzig.github.io/leipzig_auf_pump/";
+  const base = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://pumpenkarte.codeforleipzig.de/";
   const readFile = (url, ext) => {
     return $.get(base+url+"." + ext).then((result, status, xhr) => {
       console.log(result)

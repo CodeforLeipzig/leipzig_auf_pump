@@ -1,4 +1,4 @@
-var siteUrl = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://codeforleipzig.github.io/leipzig_auf_pump/";
+var siteUrl = window.location.protocol == "file:" ? "file://D:/git/leipzig_auf_pump/docs/" : "https://pumpenkarte.codeforleipzig.de/";
 requirejs.config({
   baseUrl: siteUrl + "js/",
   paths: {
