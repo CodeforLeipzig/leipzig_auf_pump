@@ -15,13 +15,15 @@ fun writeUsers() {
     val treesWatered = TreeWatered.read()
 
     val userFeatures = users.mapNotNull {
-        (userHomeAddresses.firstOrNull { ha -> ha.uuid == it.uuid } ?: userAvgTreeAddresses.firstOrNull { ha -> ha.uuid == it.uuid })?.let {address ->
+        (userHomeAddresses.firstOrNull { ha -> ha.uuid == it.uuid && ha.lat != null } ?: userAvgTreeAddresses.firstOrNull { ha -> ha.uuid == it.uuid })?.let {address ->
             it.trees = treesWatered.filter { tree -> tree.uuid == it.uuid }.map { tree -> tree.uuid = null; tree.email = null; tree.lat = null; tree.lon = null; tree }
-            GeojsonFeature(
+            if (address.lon != null && address.lat != null) {
+                GeojsonFeature(
                     id = it.uuid,
                     properties = it,
                     geometry = Geometry.from(address.lon.toString(), address.lat.toString())
-            )
+                )
+            } else null
         }
     }
     storeGeojsonFile("users", userFeatures)
